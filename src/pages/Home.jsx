@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function Home() {
   useEffect(() => {
-    document.title = 'Ciyahi Inc. — Outcome-Driven AI and Technology Services'
+    document.title = 'Ciyahi Limited — Outcome-Driven AI and Technology Services'
     // Scroll reveal
     const els = document.querySelectorAll('.card, .insight-card, .method-step, .prod-feat')
     const obs = new IntersectionObserver((entries) => {
@@ -172,3 +172,4 @@ export default function Home() {
     </>
   )
 }
+

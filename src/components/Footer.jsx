@@ -39,10 +39,11 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Ciyahi Inc. All rights reserved. Incorporated in Delaware, USA.</p>
+          <p>&copy; {new Date().getFullYear()} Ciyahi Limited All rights reserved. Incorporated in Delaware, USA.</p>
           <div className="social-links"><a href="#" className="social-link">in</a></div>
         </div>
       </div>
     </footer>
   )
 }
+

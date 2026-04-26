@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Insights() {
-  useEffect(() => { document.title = 'Insights — Ciyahi Inc.' }, [])
+  useEffect(() => { document.title = 'Insights — Ciyahi Limited' }, [])
   const posts = [
     { tag: 'AP Automation', icon: '📄', bg: 'linear-gradient(135deg,#eef2ff,#e0e7ff)', title: 'Why AI-Native AP Automation Is the Next Enterprise Frontier', excerpt: 'The real cost of manual invoice processing — and the measurable case for AI-first AP transformation.', date: 'April 2026', read: '6 min read' },
     { tag: 'Integration', icon: '🔗', bg: 'linear-gradient(135deg,#f0fdf4,#ccfbf1)', title: 'Why 70% of Integration Modernization Projects Fail — And How to Fix Them', excerpt: 'Five root causes of failed integration transformations — and the governance model that prevents them.', date: 'April 2026', read: '8 min read' },
@@ -45,3 +45,4 @@ export default function Insights() {
     </>
   )
 }
+

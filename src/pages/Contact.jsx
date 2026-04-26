@@ -6,7 +6,7 @@ export default function Contact() {
   const [service, setService] = useState('')
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
 
-  useEffect(() => { document.title = 'Contact — Ciyahi Inc.' }, [])
+  useEffect(() => { document.title = 'Contact — Ciyahi Limited' }, [])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -159,3 +159,4 @@ export default function Contact() {
     </>
   )
 }
+

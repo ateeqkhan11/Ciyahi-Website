@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function About() {
-  useEffect(() => { document.title = 'About — Ciyahi Inc.' }, [])
+  useEffect(() => { document.title = 'About — Ciyahi Limited' }, [])
   return (
     <>
       <section className="page-hero">
@@ -56,7 +56,7 @@ export default function About() {
             </div>
             <div className="grid-3">
               {[
-                { title: 'Delaware C-Corp', desc: 'Ciyahi Inc. is a Delaware C-Corp — US client-friendly, structurally sound, and built for global operations from day one.' },
+                { title: 'Delaware C-Corp', desc: 'Ciyahi Limited is a Delaware C-Corp — US client-friendly, structurally sound, and built for global operations from day one.' },
                 { title: 'US & UK Operations', desc: 'Founder presence across the United States and United Kingdom, enabling delivery across both markets.' },
                 { title: 'UK Subsidiary (Planned)', desc: 'A UK operating entity is planned to support EMEA client engagements and formal UK contracting.' },
               ].map(s => (
@@ -80,3 +80,4 @@ export default function About() {
     </>
   )
 }
+

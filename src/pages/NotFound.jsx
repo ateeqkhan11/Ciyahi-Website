@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function NotFound() {
-  useEffect(() => { document.title = 'Page Not Found — Ciyahi Inc.' }, [])
+  useEffect(() => { document.title = 'Page Not Found — Ciyahi Limited' }, [])
   return (
     <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '6rem 2rem 4rem' }}>
       <div>
@@ -17,3 +17,4 @@ export default function NotFound() {
     </section>
   )
 }
+

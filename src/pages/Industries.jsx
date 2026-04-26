@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Industries() {
-  useEffect(() => { document.title = 'Industries — Ciyahi Inc.' }, [])
+  useEffect(() => { document.title = 'Industries — Ciyahi Limited' }, [])
   const industries = [
     { icon: '🏦', title: 'Financial Services & FinTech', desc: 'AP automation, compliance automation, and AI-driven financial operations for banks, insurers, and FinTech platforms.' },
     { icon: '🏥', title: 'Healthcare & Life Sciences', desc: 'Integration modernization, data interoperability, and AI automation for healthcare providers and life sciences organizations.' },
@@ -44,3 +44,4 @@ export default function Industries() {
     </>
   )
 }
+

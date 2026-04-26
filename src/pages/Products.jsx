@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Products() {
-  useEffect(() => { document.title = 'Products — Ciyahi Inc.' }, [])
+  useEffect(() => { document.title = 'Products — Ciyahi Limited' }, [])
   return (
     <>
       <section className="page-hero">
@@ -65,3 +65,4 @@ export default function Products() {
     </>
   )
 }
+
