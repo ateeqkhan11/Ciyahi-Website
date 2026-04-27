@@ -38,7 +38,18 @@ const techStack = [
   { icon: '🟢', name: 'SAP' },
   { icon: '📊', name: 'NetSuite' },
   { icon: '🔷', name: 'Salesforce' },
+  { icon: '🛠️', name: 'ServiceNow' },
   { icon: '🐍', name: 'Python / LangChain' },
+]
+
+const apStack = [
+  { icon: '📄', name: 'Basware' },
+  { icon: '🔍', name: 'Kofax' },
+  { icon: '🗂️', name: 'Oracle WebCenter' },
+  { icon: '🖨️', name: 'Canon' },
+  { icon: '🧠', name: 'ABBYY' },
+  { icon: '🗄️', name: 'Document Management' },
+  { icon: '🚀', name: 'InvoAIce.io' },
 ]
 
 const expertise = [
@@ -123,9 +134,19 @@ export default function Home() {
       <div className="tech-strip">
         <div className="container">
           <p className="tech-strip-label">Technologies We Work With</p>
-          <div className="tech-pills">
+          <div className="tech-pills" style={{ marginBottom: '2rem' }}>
             {techStack.map(t => (
               <span key={t.name} className="tech-pill">
+                <span className="tech-pill-icon">{t.icon}</span>
+                {t.name}
+              </span>
+            ))}
+          </div>
+          <div style={{ height: '1px', background: 'var(--b)', margin: '0 auto 1.75rem', maxWidth: '600px' }} />
+          <p className="tech-strip-label">AP Platforms — Founding Team Experience</p>
+          <div className="tech-pills">
+            {apStack.map(t => (
+              <span key={t.name} className="tech-pill" style={{ borderColor: 'rgba(91,33,182,.2)', color: t.name === 'InvoAIce.io' ? 'var(--violet)' : undefined, fontWeight: t.name === 'InvoAIce.io' ? 600 : undefined }}>
                 <span className="tech-pill-icon">{t.icon}</span>
                 {t.name}
               </span>
