@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -7,7 +7,6 @@ import Services from './pages/Services'
 import Products from './pages/Products'
 import About from './pages/About'
 import Industries from './pages/Industries'
-import Insights from './pages/Insights'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 
@@ -22,7 +21,7 @@ export default function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/about" element={<About />} />
         <Route path="/industries" element={<Industries />} />
-        <Route path="/insights" element={<Insights />} />
+        <Route path="/insights" element={<Navigate to="/" replace />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

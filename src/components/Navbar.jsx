@@ -35,7 +35,6 @@ export default function Navbar() {
             <li><NavLink to="/services">Services</NavLink></li>
             <li><NavLink to="/about">About</NavLink></li>
             <li><NavLink to="/industries">Industries</NavLink></li>
-            <li><NavLink to="/insights">Insights</NavLink></li>
             <li><NavLink to="/contact" className="nav-cta">Schedule a Call</NavLink></li>
           </ul>
           <button
@@ -56,7 +55,6 @@ export default function Navbar() {
         <NavLink to="/services" onClick={close}>Services</NavLink>
         <NavLink to="/about" onClick={close}>About</NavLink>
         <NavLink to="/industries" onClick={close}>Industries</NavLink>
-        <NavLink to="/insights" onClick={close}>Insights</NavLink>
         <NavLink to="/contact" onClick={close} style={{ background: 'var(--gp)', color: '#fff', borderRadius: 'var(--rmd)', marginTop: '.5rem', fontWeight: 600, textAlign: 'center' }}>Schedule a Call</NavLink>
       </div>
     </>

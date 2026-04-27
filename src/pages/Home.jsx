@@ -267,7 +267,6 @@ export default function Home() {
         <div className="container">
           <div className="sec-head" style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
             <div><div className="label">Insights</div><h2>Insights From the Ciyahi Team</h2></div>
-            <Link to="/insights" className="btn btn-outline btn-sm">View All →</Link>
           </div>
           <div className="grid-3">
             {insights.map(ins => (
