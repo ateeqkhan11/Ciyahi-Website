@@ -6,7 +6,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
+    const onScroll = () => setScrolled(window.scrollY > 32)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -17,13 +17,22 @@ export default function Navbar() {
     <>
       <nav className={`navbar${scrolled ? ' scrolled' : ''}`} id="navbar">
         <div className="nav-wrap">
-          <Link to="/" className="nav-logo" onClick={close}>
-            <img src="/assets/images/logo.png" alt="Ciyahi" className="nav-logo-img" />
+          <Link to="/" className="nav-logo" onClick={close} style={{ textDecoration: 'none' }}>
+            <span style={{
+              fontFamily: "'Inter',sans-serif",
+              fontWeight: 800,
+              fontSize: '1.625rem',
+              letterSpacing: '-.05em',
+              background: 'linear-gradient(135deg,#5b21b6 0%,#0284c7 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}>CIYAHI</span>
           </Link>
           <ul className="nav-links">
             <li><NavLink to="/" end>Home</NavLink></li>
-            <li><NavLink to="/services">Services</NavLink></li>
             <li><NavLink to="/products">Products</NavLink></li>
+            <li><NavLink to="/services">Services</NavLink></li>
             <li><NavLink to="/about">About</NavLink></li>
             <li><NavLink to="/industries">Industries</NavLink></li>
             <li><NavLink to="/insights">Insights</NavLink></li>
@@ -43,12 +52,12 @@ export default function Navbar() {
       </nav>
       <div className={`mobile-nav${mobileOpen ? ' open' : ''}`} id="mobileNav">
         <NavLink to="/" end onClick={close}>Home</NavLink>
-        <NavLink to="/services" onClick={close}>Services</NavLink>
         <NavLink to="/products" onClick={close}>Products</NavLink>
+        <NavLink to="/services" onClick={close}>Services</NavLink>
         <NavLink to="/about" onClick={close}>About</NavLink>
         <NavLink to="/industries" onClick={close}>Industries</NavLink>
         <NavLink to="/insights" onClick={close}>Insights</NavLink>
-        <NavLink to="/contact" onClick={close}>Schedule a Call</NavLink>
+        <NavLink to="/contact" onClick={close} style={{ background: 'var(--gp)', color: '#fff', borderRadius: 'var(--rmd)', marginTop: '.5rem', fontWeight: 600, textAlign: 'center' }}>Schedule a Call</NavLink>
       </div>
     </>
   )
