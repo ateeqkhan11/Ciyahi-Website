@@ -35,8 +35,9 @@ export default function Footer() {
             <h4>Products</h4>
             <ul>
               <li><a href="https://www.invoaice.io" target="_blank" rel="noreferrer">InvoAIce.io</a></li>
-              <li><Link to="/products">ContractAI</Link></li>
-              <li><Link to="/products">SpendIQ</Link></li>
+              <li><Link to="/products">CovenAI</Link></li>
+              <li><Link to="/products">ReceivAI</Link></li>
+              <li><Link to="/products">ProcurAI</Link></li>
             </ul>
           </div>
           <div className="footer-col">

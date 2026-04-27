@@ -42,18 +42,29 @@ const invoaiceFeatures = [
 
 const pipeline = [
   {
-    icon: '📑',
-    title: 'ContractAI',
+    icon: '📜',
+    title: 'CovenAI',
+    subtitle: 'AI-Native Contract Lifecycle Management',
     status: 'Planned — 2026',
-    desc: 'AI-powered contract analysis, obligation tracking, and renewal management for legal and procurement teams. Extract key terms, flag risks, and surface renewal dates automatically.',
+    desc: 'End-to-end contract lifecycle management powered by AI. Extract key terms, track obligations, flag risks, and surface renewal dates automatically — across every contract in your business.',
     color: 'linear-gradient(135deg,#faf5ff,#ede9fe)',
     border: 'rgba(91,33,182,.15)',
   },
   {
-    icon: '📈',
-    title: 'SpendIQ',
+    icon: '💸',
+    title: 'ReceivAI',
+    subtitle: 'AI-Native Accounts Receivable',
+    status: 'Planned — 2026',
+    desc: 'Intelligent AR automation that accelerates cash collection, reduces DSO, and eliminates manual follow-up. AI-driven dunning, dispute management, and real-time receivables visibility.',
+    color: 'linear-gradient(135deg,#f0fdf4,#dcfce7)',
+    border: 'rgba(22,163,74,.15)',
+  },
+  {
+    icon: '📊',
+    title: 'ProcurAI',
+    subtitle: 'AI-Native Procurement Intelligence',
     status: 'Planned — 2027',
-    desc: 'Intelligent spend analytics and procurement optimisation platform for mid-market and enterprise CFOs. Category-level visibility, supplier consolidation recommendations, and savings identification.',
+    desc: 'Spend analytics and procurement optimisation for mid-market and enterprise CFOs. Category-level visibility, supplier consolidation recommendations, and AI-identified savings opportunities.',
     color: 'linear-gradient(135deg,#f0f9ff,#e0f2fe)',
     border: 'rgba(2,132,199,.15)',
   },
@@ -157,16 +168,13 @@ export default function Products() {
             <h2>What Is Coming Next?</h2>
             <p>We are building a focused portfolio of AI-native products across finance, legal, and procurement operations.</p>
           </div>
-          <div className="grid-2" style={{ maxWidth: '860px', margin: '0 auto 5rem' }}>
+          <div className="grid-3" style={{ margin: '0 auto 5rem' }}>
             {pipeline.map(p => (
               <div key={p.title} className="card" style={{ background: p.color, borderColor: p.border }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                  <div style={{ fontSize: '2rem' }}>{p.icon}</div>
-                  <div>
-                    <h3 style={{ marginBottom: '.125rem' }}>{p.title}</h3>
-                    <span style={{ fontSize: '.7rem', fontWeight: 700, letterSpacing: '.07em', textTransform: 'uppercase', color: '#7c3aed', background: 'rgba(91,33,182,.08)', padding: '.15rem .625rem', borderRadius: '100px', border: '1px solid rgba(91,33,182,.15)', display: 'inline-block' }}>{p.status}</span>
-                  </div>
-                </div>
+                <div style={{ fontSize: '2rem', marginBottom: '.875rem' }}>{p.icon}</div>
+                <h3 style={{ marginBottom: '.25rem' }}>{p.title}</h3>
+                <div style={{ fontSize: '.75rem', fontWeight: 600, color: '#64748b', marginBottom: '.75rem', fontStyle: 'italic' }}>{p.subtitle}</div>
+                <span style={{ fontSize: '.7rem', fontWeight: 700, letterSpacing: '.07em', textTransform: 'uppercase', color: '#7c3aed', background: 'rgba(91,33,182,.08)', padding: '.15rem .625rem', borderRadius: '100px', border: '1px solid rgba(91,33,182,.15)', display: 'inline-block', marginBottom: '1rem' }}>{p.status}</span>
                 <p style={{ fontSize: '.9rem' }}>{p.desc}</p>
               </div>
             ))}
