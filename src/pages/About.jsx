@@ -5,7 +5,7 @@ const founders = [
   {
     name: 'Iqbal Shaikh',
     role: 'Director',
-    tag: 'Director · UK Operations',
+    tag: 'Director & Co-Founder',
     bio: "Operational leader responsible for Ciyahi's day-to-day management and UK client engagement. Brings deep expertise in business development, technology delivery, and building long-term client relationships across the UK market.",
     initials: 'IS',
     gradient: 'linear-gradient(135deg,#0284c7,#0ea5e9)',
