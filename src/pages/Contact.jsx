@@ -13,12 +13,13 @@ export default function Contact() {
     setStatus('sending')
     const data = new FormData(e.target)
     try {
-      const res = await fetch('https://formspree.io/f/xwkgpbqz', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: data,
         headers: { Accept: 'application/json' }
       })
-      if (res.ok) { setStatus('sent'); e.target.reset() }
+      const json = await res.json()
+      if (json.success) { setStatus('sent'); e.target.reset() }
       else setStatus('error')
     } catch { setStatus('error') }
   }
@@ -117,6 +118,10 @@ export default function Contact() {
 
                   {step === 1 && (
                     <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                      <input type="hidden" name="access_key" value="143923a8-f358-4d5b-ae15-c45394139f47" />
+                      <input type="hidden" name="subject" value="New Enquiry — Ciyahi Website" />
+                      <input type="hidden" name="from_name" value="Ciyahi Website" />
+                      <input type="checkbox" name="botcheck" style={{ display: 'none' }} />
                       <input type="hidden" name="service" value={service} />
                       <div>
                         <h3 style={{ marginBottom: '.25rem' }}>Tell us about your situation</h3>
