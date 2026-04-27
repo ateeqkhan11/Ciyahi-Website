@@ -119,8 +119,7 @@ export default function About() {
                     <span style={{ fontSize: '.7rem', fontWeight: 700, letterSpacing: '.07em', textTransform: 'uppercase', color: '#7c3aed' }}>{f.tag}</span>
                   </div>
                 </div>
-                <p style={{ fontSize: '.9rem', marginBottom: '1.25rem' }}>{f.bio}</p>
-                <a href={`mailto:${f.email}`} style={{ color: '#5b21b6', fontSize: '.875rem', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '.375rem' }}>✉ {f.email}</a>
+                <p style={{ fontSize: '.9rem' }}>{f.bio}</p>
               </div>
             ))}
           </div>
