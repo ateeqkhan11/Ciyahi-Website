@@ -58,15 +58,23 @@ export default function About() {
         <div className="container">
 
           {/* Credential stats */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))', gap: '1.5rem', marginBottom: '5rem' }}>
-            {credentials.map(c => (
-              <div key={c.label} className="card" style={{ textAlign: 'center', padding: '2rem 1.5rem', borderTop: '3px solid transparent', borderImage: 'linear-gradient(90deg,#5b21b6,#0284c7) 1' }}>
-                <div style={{ fontSize: '1.75rem', marginBottom: '.375rem' }}>{c.icon}</div>
-                <div style={{ fontSize: '2.25rem', fontWeight: 800, background: 'linear-gradient(135deg,#5b21b6,#0284c7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', lineHeight: 1.1, marginBottom: '.25rem' }}>{c.stat}</div>
-                <div style={{ fontSize: '.7rem', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', color: '#64748b', marginBottom: '.625rem' }}>{c.label}</div>
-                <p style={{ fontSize: '.8375rem', lineHeight: 1.65 }}>{c.desc}</p>
-              </div>
-            ))}
+          <div style={{ marginBottom: '5rem' }}>
+            <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+              <div className="label" style={{ margin: '0 auto 0.625rem' }}>Founding Team Track Record</div>
+              <p style={{ fontSize: '.9375rem', color: 'var(--ts)', maxWidth: '480px', margin: '0 auto' }}>
+                Before founding Ciyahi, our team built and delivered enterprise solutions at scale. That experience is what you engage when you work with us.
+              </p>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))', gap: '1.5rem' }}>
+              {credentials.map(c => (
+                <div key={c.label} className="card" style={{ textAlign: 'center', padding: '2rem 1.5rem', borderTop: '3px solid transparent', borderImage: 'linear-gradient(90deg,#5b21b6,#0284c7) 1' }}>
+                  <div style={{ fontSize: '1.75rem', marginBottom: '.375rem' }}>{c.icon}</div>
+                  <div style={{ fontSize: '2.25rem', fontWeight: 800, background: 'linear-gradient(135deg,#5b21b6,#0284c7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', lineHeight: 1.1, marginBottom: '.25rem' }}>{c.stat}</div>
+                  <div style={{ fontSize: '.7rem', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', color: '#64748b', marginBottom: '.625rem' }}>{c.label}</div>
+                  <p style={{ fontSize: '.8375rem', lineHeight: 1.65 }}>{c.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Award banner */}

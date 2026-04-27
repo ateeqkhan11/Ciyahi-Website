@@ -105,19 +105,25 @@ export default function Services() {
         <div className="container">
 
           {/* Credibility bar */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', justifyContent: 'center', marginBottom: '5rem', padding: '2rem', background: 'linear-gradient(135deg,rgba(91,33,182,.05),rgba(2,132,199,.04))', borderRadius: '16px', border: '1px solid rgba(91,33,182,.1)' }}>
-            {[
-              { icon: '🌍', text: '20+ Enterprise Implementations' },
-              { icon: '🗺️', text: '25+ Countries Delivered In' },
-              { icon: '🏆', text: 'Award-Winning AP Automation' },
-              { icon: '📅', text: '15+ Years of Enterprise Experience' },
-              { icon: '🏗️', text: 'Founder-Led Every Engagement' },
-            ].map(c => (
-              <div key={c.text} style={{ display: 'flex', alignItems: 'center', gap: '.625rem', fontSize: '.9rem', fontWeight: 500, color: '#374151', padding: '.5rem 1rem', background: '#fff', borderRadius: '100px', border: '1px solid #e2e8f0', boxShadow: '0 1px 3px rgba(15,23,42,.04)' }}>
-                <span style={{ fontSize: '1.125rem' }}>{c.icon}</span>
-                {c.text}
-              </div>
-            ))}
+          <div style={{ marginBottom: '5rem' }}>
+            <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+              <div className="label" style={{ margin: '0 auto .625rem' }}>Founding Team Track Record</div>
+              <p style={{ fontSize: '.9rem', color: 'var(--ts)', maxWidth: '440px', margin: '0 auto' }}>The experience behind every Ciyahi engagement — built before we built Ciyahi.</p>
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center', padding: '1.75rem', background: 'linear-gradient(135deg,rgba(91,33,182,.05),rgba(2,132,199,.04))', borderRadius: '16px', border: '1px solid rgba(91,33,182,.1)' }}>
+              {[
+                { icon: '🌍', text: '20+ Enterprise Implementations' },
+                { icon: '🗺️', text: '25+ Countries Delivered In' },
+                { icon: '🏆', text: 'Award-Winning AP Automation' },
+                { icon: '📅', text: '15+ Years of Enterprise Experience' },
+                { icon: '🏗️', text: 'Founder-Led Every Engagement' },
+              ].map(c => (
+                <div key={c.text} style={{ display: 'flex', alignItems: 'center', gap: '.625rem', fontSize: '.9rem', fontWeight: 500, color: '#374151', padding: '.5rem 1rem', background: '#fff', borderRadius: '100px', border: '1px solid #e2e8f0', boxShadow: '0 1px 3px rgba(15,23,42,.04)' }}>
+                  <span style={{ fontSize: '1.125rem' }}>{c.icon}</span>
+                  {c.text}
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Service blocks */}
