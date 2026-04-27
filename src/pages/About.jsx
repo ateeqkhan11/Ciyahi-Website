@@ -5,20 +5,18 @@ const founders = [
   {
     name: 'Iqbal Shaikh',
     role: 'Director',
-    tag: 'Active Director · UK Operations',
+    tag: 'Director · UK Operations',
     bio: "Operational leader responsible for Ciyahi's day-to-day management and UK client engagement. Brings deep expertise in business development, technology delivery, and building long-term client relationships across the UK market.",
     initials: 'IS',
     gradient: 'linear-gradient(135deg,#0284c7,#0ea5e9)',
-    email: 'Iqbal.Shaikh@Ciyahi.com',
   },
   {
     name: 'Ateequeullah Khan',
-    role: 'Non-Executive Director',
-    tag: 'Founder · Technology & Product',
+    role: 'Non-Executive Director & Co-Founder',
+    tag: 'Non-Executive Director & Co-Founder',
     bio: "Enterprise technology leader with 15+ years of experience. Personal track record of 20+ full-cycle AP Automation implementations across 25+ countries. Recipient of the Best Designed AP Automation Solution & Implementation award. Architect of InvoAIce.io and Ciyahi's AI product strategy.",
     initials: 'AK',
     gradient: 'linear-gradient(135deg,#5b21b6,#7c3aed)',
-    email: 'Ateequeullah.Khan@Ciyahi.com',
   },
 ]
 
