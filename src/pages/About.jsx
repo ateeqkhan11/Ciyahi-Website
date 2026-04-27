@@ -92,12 +92,12 @@ export default function About() {
               <h2 style={{ marginBottom: '1.5rem' }}>The Problem With Enterprise Technology Consulting</h2>
               <p style={{ marginBottom: '1rem' }}>Most technology firms sell outcomes and deliver effort. The partner leads the pitch. A junior team delivers the project. The client pays for hours, not results.</p>
               <p style={{ marginBottom: '1rem' }}>We built Ciyahi to change that. Every engagement is founder-led, outcome-scoped, and priced on delivery — not time.</p>
-              <p>The name "Ciyahi" (سیاہی) means <em>ink</em> in Urdu — permanent, precise, and transformative. We turn strategy into outcomes that last.</p>
+              <p>The name "Ciyahi" means <em>ink</em> — permanent, precise, and transformative. We turn strategy into outcomes that last.</p>
             </div>
             <div className="card" style={{ padding: '2.5rem', background: 'linear-gradient(135deg,#faf5ff,#f0f9ff)', borderColor: 'rgba(91,33,182,.15)' }}>
               <div style={{ fontSize: '3rem', marginBottom: '1.25rem' }}>✒️</div>
               <h3 style={{ marginBottom: '1rem' }}>Ciyahi means Ink</h3>
-              <p style={{ marginBottom: '1.25rem' }}>In Urdu, ink is permanent, precise, and fluid — the medium through which ideas become real. Every contract signed, every system built, every outcome delivered. It starts with ink.</p>
+              <p style={{ marginBottom: '1.25rem' }}>Ink is permanent, precise, and fluid — the medium through which ideas become real. Every contract signed, every system built, every outcome delivered. It starts with ink.</p>
               <div style={{ padding: '1rem 1.25rem', background: 'rgba(91,33,182,.06)', borderLeft: '3px solid #7c3aed', borderRadius: '0 8px 8px 0', fontStyle: 'italic', color: '#475569', fontSize: '.9375rem' }}>
                 "We turn strategy into outcomes that last."
               </div>
