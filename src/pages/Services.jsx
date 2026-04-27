@@ -11,13 +11,13 @@ const services = [
     desc: "Our deepest area of expertise — backed by 20+ enterprise implementations across 25+ countries and an industry award for Best Designed AP Automation Solution. We don't just configure tools. We design end-to-end AP processes that scale.",
     outcomes: [
       'End-to-end invoice lifecycle automation — ingestion, validation, approval, posting',
-      'AI-powered data extraction with 99%+ accuracy across all invoice formats',
+      'AI-powered data extraction with 88%+ accuracy across all invoice formats',
       'ERP integration (Oracle, SAP, NetSuite, QuickBooks, Xero) with automatic GL coding',
       'Three-way PO matching, duplicate detection, and VAT/tax validation',
       'CFO-ready reporting: cycle time, aging, approval bottlenecks, cash flow',
       'Typical go-live in 4–8 weeks. Measurable ROI within 90 days.',
     ],
-    kpis: ['80% less processing time', '99%+ extraction accuracy', '4–8 week implementation'],
+    kpis: ['80% less processing time', '88%+ extraction accuracy', '4–8 week implementation'],
     emoji: '📄',
   },
   {

@@ -5,8 +5,8 @@ const invoaiceFeatures = [
   {
     icon: '📥',
     title: 'Intelligent Invoice Ingestion',
-    desc: 'Capture invoices from any channel — email, portal, EDI, or scan. AI extracts header, line, and tax data with 99%+ accuracy across all formats (PDF, XML, image).',
-    kpi: '99%+ extraction accuracy',
+    desc: 'Capture invoices from any channel — email, portal, EDI, or scan. AI extracts header, line, and tax data with 88%+ accuracy across all formats (PDF, XML, image).',
+    kpi: '88%+ extraction accuracy',
   },
   {
     icon: '✅',
@@ -108,7 +108,7 @@ export default function Products() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(180px,1fr))', gap: '1rem', margin: '2rem 0', padding: '1.5rem', background: 'rgba(255,255,255,.7)', borderRadius: '12px', border: '1px solid rgba(91,33,182,.1)' }}>
               {[
                 { metric: '80%', label: 'Reduction in AP processing time' },
-                { metric: '99%+', label: 'Invoice data extraction accuracy' },
+                { metric: '88%+', label: 'Invoice data extraction accuracy' },
                 { metric: '4–8 wks', label: 'Typical implementation timeline' },
                 { metric: '0', label: 'Manual ERP re-keying required' },
               ].map(m => (
