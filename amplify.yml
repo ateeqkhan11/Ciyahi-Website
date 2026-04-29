@@ -21,4 +21,33 @@ frontend:
 customHeaders:
   - pattern: '**/*'
     headers:
-      # Force HTTPS for two years and sig
+      # Force HTTPS for two years and signal preload list eligibility
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=63072000; includeSubDomains; preload'
+      # Block MIME-type sniffing
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      # Disallow framing the site (clickjacking protection); also enforced via CSP frame-ancestors
+      - key: 'X-Frame-Options'
+        value: 'DENY'
+      # Don't leak full referrers cross-origin
+      - key: 'Referrer-Policy'
+        value: 'strict-origin-when-cross-origin'
+      # Disable powerful APIs the marketing site doesn't use
+      - key: 'Permissions-Policy'
+        value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()'
+      # Content Security Policy
+      # - Inline styles allowed because the codebase uses lots of React `style={{...}}` props
+      # - Google Fonts on style-src + font-src
+      # - Web3Forms POST endpoint on connect-src + form-action
+      # - Tighten further once inline styles are migrated to CSS classes
+      - key: 'Content-Security-Policy'
+        value: "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+      # HTML and other non-asset files: never cache (so deploys go live immediately)
+      - key: 'Cache-Control'
+        value: 'public, max-age=0, must-revalidate'
+  # Hashed Vite build assets are immutable — cache them forever
+  - pattern: 'assets/**'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=31536000, immutable'
