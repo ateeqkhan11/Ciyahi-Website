@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 
 const industries = [
   {
@@ -84,6 +85,11 @@ export default function Industries() {
 
   return (
     <>
+      <SEO
+        title="Industries"
+        path="/industries"
+        description="Deep expertise in financial services, healthcare, manufacturing, retail, professional services, and technology. Sector-aware delivery for mid-market and enterprise."
+      />
       <section className="page-hero">
         <div className="page-hero-blob blob-hero-1" /><div className="page-hero-blob blob-hero-2" />
         <div className="container">

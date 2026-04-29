@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 
 const categories = ['All', 'AP Automation', 'AI Strategy', 'Integration', 'Cloud', 'IT Advisory']
 
@@ -82,6 +83,11 @@ export default function Insights() {
 
   return (
     <>
+      <SEO
+        title="Insights"
+        path="/insights"
+        description="Practical perspectives on enterprise AI, AP automation, integration modernisation, and technology strategy — written by practitioners, for practitioners."
+      />
       <section className="page-hero">
         <div className="page-hero-blob blob-hero-1" /><div className="page-hero-blob blob-hero-2" />
         <div className="container">

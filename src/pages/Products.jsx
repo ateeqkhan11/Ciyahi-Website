@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 
 const invoaiceFeatures = [
   {
@@ -82,6 +83,11 @@ export default function Products() {
 
   return (
     <>
+      <SEO
+        title="Products"
+        path="/products"
+        description="InvoAIce.io is an AI-native AP automation platform that integrates with Oracle Fusion, JD Edwards, SAP, and QuickBooks — without replacing your ERP. Live in 2 weeks."
+      />
       <section className="page-hero">
         <div className="page-hero-blob blob-hero-1" />
         <div className="page-hero-blob blob-hero-2" />

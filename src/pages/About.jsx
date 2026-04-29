@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 
 const founders = [
   {
@@ -38,6 +39,11 @@ export default function About() {
 
   return (
     <>
+      <SEO
+        title="About"
+        path="/about"
+        description="Ciyahi is a Delaware C-Corp founded by enterprise practitioners with 15+ years of AP automation, integration, and AI experience. Founder-led every engagement."
+      />
       <section className="page-hero">
         <div className="page-hero-blob blob-hero-1" />
         <div className="page-hero-blob blob-hero-2" />

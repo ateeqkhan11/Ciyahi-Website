@@ -1,10 +1,12 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 
 export default function NotFound() {
   useEffect(() => { document.title = 'Page Not Found — Ciyahi Limited' }, [])
   return (
     <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '6rem 2rem 4rem' }}>
+      <SEO title="Page Not Found" description="The page you are looking for does not exist." noindex />
       <div>
         <div style={{ fontSize: '6rem', fontWeight: 800, background: 'linear-gradient(135deg,#4f46e5,#0d9488)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', lineHeight: 1, marginBottom: '1.5rem' }}>404</div>
         <h1 style={{ fontSize: '1.75rem', marginBottom: '1rem', color: '#1e2d3d' }}>This page doesn&rsquo;t exist</h1>

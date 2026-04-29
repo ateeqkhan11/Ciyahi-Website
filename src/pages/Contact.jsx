@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 
 export default function Contact() {
   const [step, setStep] = useState(0)
@@ -35,6 +35,11 @@ export default function Contact() {
 
   return (
     <>
+      <SEO
+        title="Contact"
+        path="/contact"
+        description="Schedule a strategy call with Ciyahi. Every conversation starts with a founder — not an account manager."
+      />
       <section className="page-hero">
         <div className="page-hero-blob blob-hero-1" />
         <div className="page-hero-blob blob-hero-2" />
@@ -129,25 +134,68 @@ export default function Contact() {
                       </div>
                       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                         <div className="form-group">
-                          <label className="form-label">First Name *</label>
-                          <input className="form-input" name="firstName" required placeholder="Ateeq" />
+                          <label className="form-label" htmlFor="contact-firstName">First Name *</label>
+                          <input
+                            id="contact-firstName"
+                            className="form-input"
+                            name="firstName"
+                            type="text"
+                            autoComplete="given-name"
+                            required
+                            aria-required="true"
+                            placeholder="Jane"
+                          />
                         </div>
                         <div className="form-group">
-                          <label className="form-label">Last Name *</label>
-                          <input className="form-input" name="lastName" required placeholder="Khan" />
+                          <label className="form-label" htmlFor="contact-lastName">Last Name *</label>
+                          <input
+                            id="contact-lastName"
+                            className="form-input"
+                            name="lastName"
+                            type="text"
+                            autoComplete="family-name"
+                            required
+                            aria-required="true"
+                            placeholder="Doe"
+                          />
                         </div>
                       </div>
                       <div className="form-group">
-                        <label className="form-label">Work Email *</label>
-                        <input className="form-input" name="email" type="email" required placeholder="you@company.com" />
+                        <label className="form-label" htmlFor="contact-email">Work Email *</label>
+                        <input
+                          id="contact-email"
+                          className="form-input"
+                          name="email"
+                          type="email"
+                          autoComplete="email"
+                          required
+                          aria-required="true"
+                          placeholder="you@company.com"
+                        />
                       </div>
                       <div className="form-group">
-                        <label className="form-label">Company</label>
-                        <input className="form-input" name="company" placeholder="Your company name" />
+                        <label className="form-label" htmlFor="contact-company">Company</label>
+                        <input
+                          id="contact-company"
+                          className="form-input"
+                          name="company"
+                          type="text"
+                          autoComplete="organization"
+                          placeholder="Your company name"
+                        />
                       </div>
                       <div className="form-group">
-                        <label className="form-label">Tell us about your challenge *</label>
-                        <textarea className="form-input" name="message" required rows={4} placeholder="Briefly describe what you're trying to solve..." style={{ resize: 'vertical' }} />
+                        <label className="form-label" htmlFor="contact-message">Tell us about your challenge *</label>
+                        <textarea
+                          id="contact-message"
+                          className="form-input"
+                          name="message"
+                          required
+                          aria-required="true"
+                          rows={4}
+                          placeholder="Briefly describe what you're trying to solve..."
+                          style={{ resize: 'vertical' }}
+                        />
                       </div>
                       <button type="submit" className="btn btn-primary" disabled={status === 'sending'} style={{ marginTop: '.5rem' }}>
                         {status === 'sending' ? 'Sending...' : 'Send Message \u2192'}

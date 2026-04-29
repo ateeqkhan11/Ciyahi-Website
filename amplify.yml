@@ -14,12 +14,11 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
-  customHeaders:
-    - pattern: '**/*'
-      headers:
-        - key: 'Cache-Control'
-          value: 'public, max-age=0, must-revalidate'
-    - pattern: 'assets/**'
-      headers:
-        - key: 'Cache-Control'
-          value: 'public, max-age=31536000, immutable'
+
+# Custom headers must live at the root of amplify.yml (not under `frontend:`)
+# per AWS Amplify docs:
+# https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html
+customHeaders:
+  - pattern: '**/*'
+    headers:
+      # Force HTTPS for two years and sig

@@ -68,8 +68,31 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} Ciyahi Limited. Incorporated in Delaware, USA.</p>
-          <div className="social-links">
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="social-link" aria-label="LinkedIn">in</a>
+          <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
+            <Link
+              to="/privacy"
+              style={{ fontSize: '.8125rem', color: 'rgba(255,255,255,.55)', textDecoration: 'none' }}
+            >
+              Privacy
+            </Link>
+            <Link
+              to="/terms"
+              style={{ fontSize: '.8125rem', color: 'rgba(255,255,255,.55)', textDecoration: 'none' }}
+            >
+              Terms
+            </Link>
+            <div className="social-links">
+              {/* TODO: replace with the real Ciyahi LinkedIn company URL once the page is live */}
+              <a
+                href="https://www.linkedin.com/company/ciyahi-limited"
+                target="_blank"
+                rel="noreferrer"
+                className="social-link"
+                aria-label="Ciyahi on LinkedIn"
+              >
+                in
+              </a>
+            </div>
           </div>
         </div>
       </div>

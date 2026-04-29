@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 
 const services = [
   {
@@ -88,6 +89,11 @@ export default function Services() {
 
   return (
     <>
+      <SEO
+        title="Services"
+        path="/services"
+        description="Founder-led AP automation, AI-driven automation, integration modernisation, and IT strategy. Outcome-priced delivery from a team with 15+ years of enterprise experience."
+      />
       <section className="page-hero">
         <div className="page-hero-blob blob-hero-1" />
         <div className="page-hero-blob blob-hero-2" />
@@ -128,7 +134,7 @@ export default function Services() {
           </div>
 
           {/* Service blocks */}
-          {services.map((svc, i) => (
+          {services.map((svc) => (
             <div key={svc.title} style={{ marginBottom: '3rem', background: '#fff', border: '1px solid #e2e8f0', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 2px 12px rgba(15,23,42,.06)' }}>
               {/* Header */}
               <div style={{ padding: '2.5rem 2.5rem 2rem', borderBottom: '1px solid #f1f5f9', display: 'flex', alignItems: 'flex-start', gap: '1.5rem', flexWrap: 'wrap' }}>

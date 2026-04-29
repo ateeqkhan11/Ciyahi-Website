@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AnimatedCounter from '../components/AnimatedCounter'
+import SEO from '../components/SEO'
 
 const services = [
   { icon: '🤖', title: 'AI-Driven Automation', desc: 'Intelligent agents, LLM integrations, and automation frameworks that scale your operations without scaling headcount.' },
@@ -91,6 +92,10 @@ export default function Home() {
 
   return (
     <>
+      <SEO
+        path="/"
+        description="AI-native products and outcome-driven technology services for enterprises. Flagship: InvoAIce.io — AI-native AP automation that goes live in weeks, not quarters."
+      />
       {/* ── HERO ── */}
       <section className="hero">
         <div className="hero-blob blob-1" />
