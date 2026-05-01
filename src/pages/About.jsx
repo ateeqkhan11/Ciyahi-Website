@@ -10,13 +10,14 @@ const founders = [
     initials: 'IS',
     gradient: 'linear-gradient(135deg,#0284c7,#0ea5e9)',
   },
-  {
-    name: 'Ateequeullah Khan',
-    tag: 'Non-Executive Director & Co-Founder',
-    bio: "Ateeq is a non-executive co-founder and the technical conscience behind Ciyahi's product direction. Prior to Ciyahi, he spent 16+ years leading enterprise technology delivery — including 20+ full-cycle AP Automation implementations across 25+ countries and an industry award for Best Designed AP Automation Solution & Implementation. That experience informs the long-term vision behind InvoAIce.io.",
-    initials: 'AK',
-    gradient: 'linear-gradient(135deg,#5b21b6,#7c3aed)',
-  },
+  // TEMPORARILY HIDDEN — uncomment to restore Ateequeullah's founder card
+  // {
+  //   name: 'Ateequeullah Khan',
+  //   tag: 'Non-Executive Director & Co-Founder',
+  //   bio: "Ateeq is a non-executive co-founder and the technical conscience behind Ciyahi's product direction. Prior to Ciyahi, he spent 16+ years leading enterprise technology delivery — including 20+ full-cycle AP Automation implementations across 25+ countries and an industry award for Best Designed AP Automation Solution & Implementation. That experience informs the long-term vision behind InvoAIce.io.",
+  //   initials: 'AK',
+  //   gradient: 'linear-gradient(135deg,#5b21b6,#7c3aed)',
+  // },
 ]
 
 const credentials = [
