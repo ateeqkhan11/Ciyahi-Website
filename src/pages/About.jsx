@@ -1,6 +1,12 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
+import JsonLd from '../components/JsonLd'
+import { buildBreadcrumb } from '../seo/schema'
+
+const breadcrumbSchema = buildBreadcrumb([
+  { name: 'About', path: '/about' },
+])
 
 const founders = [
   {
@@ -39,10 +45,12 @@ export default function About() {
   return (
     <>
       <SEO
-        title="About"
+        title="About Ciyahi"
         path="/about"
-        description="Ciyahi is a Delaware C-Corp founded by enterprise practitioners with 15+ years of AP automation, integration, and AI experience. Founder-led every engagement."
+        description="Ciyahi Limited is a Delaware C-Corporation building AI-native finance products for SMB, mid-market, and enterprise teams. Founded by practitioners with 15+ years of AP automation experience. Dual US / UK presence."
+        keywords="Ciyahi, Ciyahi Limited, AI finance startup, Delaware C-Corp finance, finance automation founders, InvoAIce founders, AP automation startup"
       />
+      <JsonLd schema={breadcrumbSchema} />
       <section className="page-hero">
         <div className="page-hero-blob blob-hero-1" />
         <div className="page-hero-blob blob-hero-2" />
