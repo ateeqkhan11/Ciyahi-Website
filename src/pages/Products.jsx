@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { FileText, ScanLine, Shield, CheckCircle2, GitMerge, UserCheck, Plug, Bell } from 'lucide-react'
 import SEO from '../components/SEO'
 import JsonLd from '../components/JsonLd'
 import { buildBreadcrumb } from '../seo/schema'
@@ -47,14 +48,14 @@ const invoaiceStats = [
 
 // ── Inside InvoAIce: the 8-agent swarm — Ciyahi's signature architecture ───
 const agents = [
-  { icon: '📄', title: 'DocIntel', desc: 'Captures invoices from email, vendor portals, EDI feeds, and scanned files. Routes them into the pipeline within seconds of arrival.' },
-  { icon: '🔬', title: 'OCR Agent', desc: 'Extracts header, line, and tax data with up to 99.2% field accuracy across PDFs, XML, images, and scanned formats.' },
-  { icon: '🛡️', title: 'Fraud Agent', desc: '14 fraud signals on every invoice — including BEC pattern detection, vendor anomalies, and duplicate inspection.' },
-  { icon: '✅', title: 'Validation Agent', desc: '15+ rule-based and ML validation checks. PO presence, tax integrity, vendor master alignment, currency consistency.' },
-  { icon: '🔗', title: 'Matching Agent', desc: 'Three-way PO/GRN match with configurable tolerances (default 5%). Exceptions auto-routed to the right resolver.' },
-  { icon: '👤', title: 'Approval Agent', desc: 'Routes by amount, role, vendor, GL code. SLA tracking and escalation built in. Approves on mobile or email.' },
-  { icon: '🔌', title: 'ERP Agent', desc: 'Posts cleanly into your ERP with correct GL coding. SAP, Oracle, NetSuite, MS Dynamics, QuickBooks, Xero, Sage.' },
-  { icon: '🔔', title: 'Notify Agent', desc: 'Email confirmations, vendor status, audit trail. Every step logged. Zero-gap audit on every invoice processed.' },
+  { Icon: FileText, title: 'DocIntel', desc: 'Captures invoices from email, vendor portals, EDI feeds, and scanned files. Routes them into the pipeline within seconds of arrival.' },
+  { Icon: ScanLine, title: 'OCR Agent', desc: 'Extracts header, line, and tax data with up to 99.2% field accuracy across PDFs, XML, images, and scanned formats.' },
+  { Icon: Shield, title: 'Fraud Agent', desc: '14 fraud signals on every invoice — including BEC pattern detection, vendor anomalies, and duplicate inspection.' },
+  { Icon: CheckCircle2, title: 'Validation Agent', desc: '15+ rule-based and ML validation checks. PO presence, tax integrity, vendor master alignment, currency consistency.' },
+  { Icon: GitMerge, title: 'Matching Agent', desc: 'Three-way PO/GRN match with configurable tolerances (default 5%). Exceptions auto-routed to the right resolver.' },
+  { Icon: UserCheck, title: 'Approval Agent', desc: 'Routes by amount, role, vendor, GL code. SLA tracking and escalation built in. Approves on mobile or email.' },
+  { Icon: Plug, title: 'ERP Agent', desc: 'Posts cleanly into your ERP with correct GL coding. SAP, Oracle, NetSuite, MS Dynamics, QuickBooks, Xero, Sage.' },
+  { Icon: Bell, title: 'Notify Agent', desc: 'Email confirmations, vendor status, audit trail. Every step logged. Zero-gap audit on every invoice processed.' },
 ]
 
 const erpEnterprise = ['SAP', 'Oracle Fusion', 'JD Edwards', 'Oracle EBS', 'NetSuite', 'MS Dynamics']
@@ -138,7 +139,7 @@ export default function Products() {
               </div>
               <div style={{ display: 'flex', gap: '.875rem', flexShrink: 0, alignSelf: 'flex-end', flexWrap: 'wrap' }}>
                 <a href="https://www.invoaice.io" target="_blank" rel="noreferrer" className="btn btn-primary">Visit InvoAIce.io →</a>
-                <Link to="/contact" className="btn btn-secondary">Apply for Design Partner Program</Link>
+                <Link to="/contact?dp=1" className="btn btn-secondary">Apply for Design Partner Program</Link>
               </div>
             </div>
 
@@ -188,7 +189,9 @@ export default function Products() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
               {agents.map(a => (
                 <div key={a.title} className="card agent-card" style={{ padding: '1.25rem 1.25rem 1.375rem' }}>
-                  <div style={{ fontSize: '1.5rem', marginBottom: '.5rem' }}>{a.icon}</div>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'linear-gradient(135deg,rgba(91,33,182,.08),rgba(124,58,237,.12))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '.75rem' }}>
+                    <a.Icon size={22} strokeWidth={1.7} style={{ color: '#5b21b6' }} />
+                  </div>
                   <strong style={{ display: 'block', color: '#5b21b6', marginBottom: '.375rem', fontSize: '.95rem' }}>{a.title}</strong>
                   <span style={{ fontSize: '.825rem', color: 'var(--ts)', lineHeight: 1.55, display: 'block' }}>{a.desc}</span>
                 </div>
@@ -255,7 +258,7 @@ export default function Products() {
             <h2>Stop paying $25 to process a $50 invoice.</h2>
             <p>Join the InvoAIce Design Partner Program. 60 days completely free. Five spots only. Founder-led pilot, locked-in pricing, and a working AP automation system in 4 weeks. We get a logo, a case study, and reference calls.</p>
             <div className="cta-actions">
-              <Link to="/contact" className="btn btn-primary">Apply for Design Partner Program →</Link>
+              <Link to="/contact?dp=1" className="btn btn-primary">Apply for Design Partner Program →</Link>
               <a href="https://www.invoaice.io" target="_blank" rel="noreferrer" className="btn btn-secondary">Visit InvoAIce.io</a>
             </div>
           </div>

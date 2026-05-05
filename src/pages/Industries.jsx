@@ -1,5 +1,10 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import {
+  Inbox, Clock, Eye, ShieldAlert,
+  Landmark, HeartPulse, Factory, ShoppingCart, Briefcase, Cog,
+  Puzzle, Globe, Plug, Shield,
+} from 'lucide-react'
 import SEO from '../components/SEO'
 import JsonLd from '../components/JsonLd'
 import { buildBreadcrumb } from '../seo/schema'
@@ -10,56 +15,56 @@ const breadcrumbSchema = buildBreadcrumb([
 
 // ── Universal pain: every CFO's office runs into these, regardless of vertical ─
 const universalPain = [
-  { icon: '📬', title: 'Manual invoice processing', desc: 'Most AP teams still rekey invoices into ERP. Industry-average all-in cost: ~$25 per invoice.' },
-  { icon: '⏱️', title: 'Approval bottlenecks', desc: 'Invoices sit in inboxes for days. No SLA tracking, no escalation, no visibility for the AP team.' },
-  { icon: '🔍', title: 'No real-time cash visibility', desc: 'Close takes 5–10 days. DSO creeps. Forecasts run on spreadsheets, not live data.' },
-  { icon: '🛡️', title: 'Compliance & audit risk', desc: 'Duplicate payments, missed PO matches, broken audit trails. Different consequences in every industry — same root cause.' },
+  { Icon: Inbox, title: 'Manual invoice processing', desc: 'Most AP teams still rekey invoices into ERP. Industry-average all-in cost: ~$25 per invoice.' },
+  { Icon: Clock, title: 'Approval bottlenecks', desc: 'Invoices sit in inboxes for days. No SLA tracking, no escalation, no visibility for the AP team.' },
+  { Icon: Eye, title: 'No real-time cash visibility', desc: 'Close takes 5–10 days. DSO creeps. Forecasts run on spreadsheets, not live data.' },
+  { Icon: ShieldAlert, title: 'Compliance & audit risk', desc: 'Duplicate payments, missed PO matches, broken audit trails. Different consequences in every industry — same root cause.' },
 ]
 
 // ── Industry cards: each one reframed around finance automation specifics ───
 const industries = [
   {
-    icon: '🏦',
+    Icon: Landmark,
     title: 'Financial Services',
     desc: 'Banks, insurers, and asset managers process tens of thousands of vendor invoices a month — under heavy regulatory scrutiny. AI-powered AP automation cuts cycle time without compromising audit trail or SOX compliance.',
     pain: 'High volume · Heavy regulation · Multi-entity recharges',
-    products: { name: 'InvoAIce', status: 'Live now', live: true },
+    products: { name: 'InvoAIce', status: 'Available', live: true },
     tags: ['AP Automation', 'SOX-ready', 'Multi-entity'],
     color: 'linear-gradient(135deg,#f5f3ff,#ede9fe)',
     border: 'rgba(91,33,182,.15)',
   },
   {
-    icon: '🏥',
+    Icon: HeartPulse,
     title: 'Healthcare',
     desc: 'Hospitals, payers, and MedTech companies manage huge vendor bases with complex GL coding and procurement rules. Finance automation cuts manual coding work and accelerates supplier payments.',
     pain: 'Complex GL coding · Vendor sprawl · Procurement rules',
-    products: { name: 'InvoAIce', status: 'Live now', live: true },
+    products: { name: 'InvoAIce', status: 'Available', live: true },
     tags: ['AP Automation', 'GL automation', 'Vendor management'],
     color: 'linear-gradient(135deg,#f0fdf4,#dcfce7)',
     border: 'rgba(22,163,74,.15)',
   },
   {
-    icon: '🏭',
+    Icon: Factory,
     title: 'Manufacturing',
     desc: 'Manufacturers run high-volume, multi-currency payables across global supplier bases. 3-way matching at scale, intercompany recharges, and ERP-native posting are non-negotiable.',
     pain: 'Multi-currency · 3-way match volume · Intercompany',
-    products: { name: 'InvoAIce', status: 'Live now', live: true },
+    products: { name: 'InvoAIce', status: 'Available', live: true },
     tags: ['3-way Match', 'Multi-currency', 'SAP / Oracle'],
     color: 'linear-gradient(135deg,#fff7ed,#fed7aa)',
     border: 'rgba(234,88,12,.15)',
   },
   {
-    icon: '🛒',
+    Icon: ShoppingCart,
     title: 'Retail & E-Commerce',
     desc: 'Retailers manage thousands of vendors, dropship partners, and marketplace settlements. Seasonal volume spikes break manual AP workflows. AI processes invoices at any scale, with no headcount surge.',
     pain: 'Seasonal spikes · Marketplace complexity · Vendor sprawl',
-    products: { name: 'InvoAIce', status: 'Live now', live: true },
+    products: { name: 'InvoAIce', status: 'Available', live: true },
     tags: ['High-volume AP', 'Marketplace', 'Scalability'],
     color: 'linear-gradient(135deg,#fdf4ff,#fae8ff)',
     border: 'rgba(168,85,247,.15)',
   },
   {
-    icon: '🧑‍💼',
+    Icon: Briefcase,
     title: 'Professional Services',
     desc: 'Legal, accounting, and consulting firms invoice clients project-by-project — and then chase receivables for months. AR-heavy operations need intelligent collections and contract lifecycle automation.',
     pain: 'Project billing · Slow collections · Contract sprawl',
@@ -69,7 +74,7 @@ const industries = [
     border: 'rgba(2,132,199,.15)',
   },
   {
-    icon: '⚙️',
+    Icon: Cog,
     title: 'Technology & SaaS',
     desc: 'Subscription businesses struggle with cash application across thousands of small payments, complex revenue recognition, and global expansion. The full O2C cycle is the real automation prize.',
     pain: 'Cash application · Revenue recognition · Global O2C',
@@ -82,10 +87,10 @@ const industries = [
 
 // ── How Ciyahi adapts to each vertical ──────────────────────────────────────
 const adaptations = [
-  { icon: '🧩', title: 'Configurable approval logic', desc: 'Routing rules per entity, GL code, vendor, amount. Match your existing finance governance — no process redesign required.' },
-  { icon: '🌍', title: 'Multi-currency & multi-entity', desc: 'Built for organisations operating across borders, with localised tax rules and intercompany recharges from day one.' },
-  { icon: '🔌', title: 'Native ERP posting', desc: 'Posts cleanly into SAP, Oracle Fusion, JD Edwards, NetSuite, MS Dynamics, QuickBooks, Xero, and Sage. Your ERP stays where it is.' },
-  { icon: '🛡️', title: 'Compliance & audit ready', desc: 'Zero-gap audit trail on every invoice. SOX-ready evidence pack. Configurable retention and data residency.' },
+  { Icon: Puzzle, title: 'Configurable approval logic', desc: 'Routing rules per entity, GL code, vendor, amount. Match your existing finance governance — no process redesign required.' },
+  { Icon: Globe, title: 'Multi-currency & multi-entity', desc: 'Built for organisations operating across borders, with localised tax rules and intercompany recharges from day one.' },
+  { Icon: Plug, title: 'Native ERP posting', desc: 'Posts cleanly into SAP, Oracle Fusion, JD Edwards, NetSuite, MS Dynamics, QuickBooks, Xero, and Sage. Your ERP stays where it is.' },
+  { Icon: Shield, title: 'Compliance & audit ready', desc: 'Zero-gap audit trail on every invoice. SOX-ready evidence pack. Configurable retention and data residency.' },
 ]
 
 export default function Industries() {
@@ -145,7 +150,9 @@ export default function Industries() {
           <div className="grid-4">
             {universalPain.map(p => (
               <div key={p.title} className="card pain-card" style={{ padding: '1.5rem 1.375rem', borderTop: '3px solid #ef4444' }}>
-                <div style={{ fontSize: '1.75rem', marginBottom: '.625rem' }}>{p.icon}</div>
+                <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(239,68,68,.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '.875rem' }}>
+                  <p.Icon size={22} strokeWidth={1.7} style={{ color: '#ef4444' }} />
+                </div>
                 <h3 style={{ fontSize: '1rem', marginBottom: '.5rem' }}>{p.title}</h3>
                 <p style={{ fontSize: '.875rem', lineHeight: 1.6 }}>{p.desc}</p>
               </div>
@@ -166,7 +173,9 @@ export default function Industries() {
             {industries.map(ind => (
               <div key={ind.title} className="card industry-card" style={{ background: ind.color, borderColor: ind.border, padding: '1.75rem 1.5rem 1.5rem' }}>
                 <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '.75rem', marginBottom: '1rem' }}>
-                  <div style={{ fontSize: '2.25rem' }}>{ind.icon}</div>
+                  <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(255,255,255,.7)', border: '1px solid rgba(0,0,0,.06)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <ind.Icon size={26} strokeWidth={1.6} style={{ color: '#5b21b6' }} />
+                  </div>
                   <div style={{ display: 'inline-flex', alignItems: 'center', gap: '.375rem', fontSize: '.7rem', fontWeight: 700, color: ind.products.live ? '#059669' : (ind.products.accent || '#5b21b6'), background: ind.products.live ? 'rgba(16,185,129,.12)' : 'rgba(255,255,255,.7)', border: `1px solid ${ind.products.live ? 'rgba(16,185,129,.25)' : 'rgba(0,0,0,.07)'}`, padding: '.2rem .625rem', borderRadius: '20px', whiteSpace: 'nowrap' }}>
                     {ind.products.live ? '✓ ' : ''}{ind.products.name}
                   </div>
@@ -196,7 +205,9 @@ export default function Industries() {
           <div className="grid-4">
             {adaptations.map(a => (
               <div key={a.title} className="card adapt-card">
-                <div className="card-icon">{a.icon}</div>
+                <div className="card-icon" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(135deg,rgba(91,33,182,.08),rgba(124,58,237,.12))' }}>
+                  <a.Icon size={28} strokeWidth={1.6} style={{ color: '#5b21b6' }} />
+                </div>
                 <h3>{a.title}</h3>
                 <p>{a.desc}</p>
               </div>
@@ -212,7 +223,7 @@ export default function Industries() {
             <h2>Don't see your vertical?</h2>
             <p>Even if your industry isn't on this list, the underlying problems — manual AP processing, slow collections, no real-time cash visibility — are universal. InvoAIce is configurable enough to land in most finance environments. Let's talk about your specific finance cycle.</p>
             <div className="cta-actions">
-              <Link to="/contact" className="btn btn-primary">Apply for Design Partner Program →</Link>
+              <Link to="/contact?dp=1" className="btn btn-primary">Apply for Design Partner Program →</Link>
               <Link to="/products" className="btn btn-secondary">View Our Products</Link>
             </div>
           </div>

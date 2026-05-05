@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { FileText, Bot, Link2, Compass, Globe, Users, Cpu, Award } from 'lucide-react'
 import SEO from '../components/SEO'
 import JsonLd from '../components/JsonLd'
 import { buildBreadcrumb } from '../seo/schema'
@@ -10,12 +11,12 @@ const breadcrumbSchema = buildBreadcrumb([
 
 const services = [
   {
-    icon: '📄',
+    Icon: FileText,
     title: 'AP Automation',
     tag: 'Core Expertise',
     tagColor: '#5b21b6',
     tagBg: 'rgba(91,33,182,.08)',
-    desc: "Our deepest area of expertise — backed by 20+ enterprise implementations across 25+ countries and an industry award for Best Designed AP Automation Solution. Our founding team has implemented Basware, Kofax, Oracle WebCenter, Canon, ABBYY, and Document Management systems — and built InvoAIce.io because we knew we could do it better.",
+    desc: "Our deepest area of expertise. Before Ciyahi, our founding team delivered 20+ AP automation implementations across 25+ countries and won an industry award for 'Best Designed AP Automation Solution & Implementation.' That same team implemented Basware, Kofax, Oracle WebCenter, Canon, ABBYY, and Document Management systems — and built InvoAIce.io because we knew we could do it better.",
     outcomes: [
       'End-to-end invoice lifecycle automation — ingestion, validation, approval, posting',
       'AI-powered data extraction with 88%+ accuracy across all invoice formats (PDF, XML, image, scan)',
@@ -29,7 +30,7 @@ const services = [
     emoji: '📄',
   },
   {
-    icon: '🤖',
+    Icon: Bot,
     title: 'AI for Finance Operations',
     tag: 'Adjacent to Product',
     tagColor: '#0284c7',
@@ -46,7 +47,7 @@ const services = [
     emoji: '🤖',
   },
   {
-    icon: '🔗',
+    Icon: Link2,
     title: 'Finance ERP Integration',
     tag: 'Enterprise Capability',
     tagColor: '#0284c7',
@@ -64,7 +65,7 @@ const services = [
     emoji: '🔗',
   },
   {
-    icon: '🧭',
+    Icon: Compass,
     title: 'Finance AI Strategy & Advisory',
     tag: 'Advisory',
     tagColor: '#5b21b6',
@@ -181,7 +182,9 @@ export default function Services() {
             <div key={svc.title} style={{ marginBottom: '3rem', background: '#fff', border: '1px solid #e2e8f0', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 2px 12px rgba(15,23,42,.06)' }}>
               {/* Header */}
               <div style={{ padding: '2.5rem 2.5rem 2rem', borderBottom: '1px solid #f1f5f9', display: 'flex', alignItems: 'flex-start', gap: '1.5rem', flexWrap: 'wrap' }}>
-                <div style={{ width: '56px', height: '56px', background: 'linear-gradient(135deg,rgba(91,33,182,.1),rgba(2,132,199,.07))', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.625rem', flexShrink: 0, border: '1px solid rgba(91,33,182,.12)' }}>{svc.icon}</div>
+                <div style={{ width: '56px', height: '56px', background: 'linear-gradient(135deg,rgba(91,33,182,.1),rgba(2,132,199,.07))', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, border: '1px solid rgba(91,33,182,.12)' }}>
+                  <svc.Icon size={28} strokeWidth={1.6} style={{ color: '#5b21b6' }} />
+                </div>
                 <div style={{ flex: 1 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '.75rem', marginBottom: '.5rem', flexWrap: 'wrap' }}>
                     <h2 style={{ fontSize: '1.375rem', margin: 0 }}>{svc.title}</h2>
@@ -259,10 +262,10 @@ export default function Services() {
 
           {/* Methodology */}
           <div style={{ marginBottom: '5rem' }}>
-            <div className="sec-head text-center" style={{ maxWidth: '480px', margin: '0 auto 3rem' }}>
+            <div className="sec-head text-center" style={{ maxWidth: '540px', margin: '0 auto 3rem' }}>
               <div className="label">How We Work</div>
-              <h2>Our Delivery Methodology</h2>
-              <p>The same four-phase approach across every engagement — adapted to your context, never templated.</p>
+              <h2>Our Service Engagement Methodology</h2>
+              <p>The four phases we run across every services engagement — assessment, design, delivery, embed. Adapted to your context, never templated. (For the path to using our products, see the <Link to="/" style={{ color: 'var(--violet)', fontWeight: 600 }}>Customer Journey</Link> on the homepage.)</p>
             </div>
             <div className="method-grid">
               {methodology.map(m => (

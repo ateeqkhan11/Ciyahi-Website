@@ -12,12 +12,12 @@ export default function Footer() {
                 CIYAHI
               </span>
             </Link>
-            <p style={{ maxWidth: '280px', fontSize: '.875rem', color: 'rgba(255,255,255,.4)', lineHeight: 1.7, margin: 0 }}>
-              Outcome-driven AI products &amp; technology services. Founder-led. Built to last.
+            <p style={{ maxWidth: '320px', fontSize: '.875rem', color: 'rgba(255,255,255,.4)', lineHeight: 1.7, margin: 0 }}>
+              AI-native finance automation. Our flagship — <a href="https://www.invoaice.io" target="_blank" rel="noreferrer" style={{ color: 'rgba(255,255,255,.7)', textDecoration: 'none', fontWeight: 500 }}>InvoAIce.io</a> — is in production today. Aspiring to cover the full P2P + O2C cycle.
             </p>
           </div>
-          <Link to="/contact" className="btn btn-primary" style={{ background: 'var(--gp)', boxShadow: 'var(--shadow-violet-sm)' }}>
-            Schedule a Free Call →
+          <Link to="/contact?dp=1" className="btn btn-primary" style={{ background: 'var(--gp)', boxShadow: 'var(--shadow-violet-sm)' }}>
+            Apply for Design Partner Program →
           </Link>
         </div>
 
@@ -25,19 +25,22 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Services</h4>
             <ul>
-              <li><Link to="/services">AI-Driven Automation</Link></li>
               <li><Link to="/services">AP Automation</Link></li>
-              <li><Link to="/services">Integration Modernization</Link></li>
-              <li><Link to="/services">IT Strategy &amp; Advisory</Link></li>
+              <li><Link to="/services">AI for Finance Operations</Link></li>
+              <li><Link to="/services">Finance ERP Integration</Link></li>
+              <li><Link to="/services">Finance AI Strategy &amp; Advisory</Link></li>
             </ul>
           </div>
           <div className="footer-col">
             <h4>Products</h4>
             <ul>
-              <li><a href="https://www.invoaice.io" target="_blank" rel="noreferrer">InvoAIce.io</a></li>
-              <li><Link to="/products">CovenAI</Link></li>
-              <li><Link to="/products">ReceivAI</Link></li>
-              <li><Link to="/products">ProcurAI</Link></li>
+              <li>
+                <a href="https://www.invoaice.io" target="_blank" rel="noreferrer">
+                  InvoAIce.io
+                  <span style={{ display: 'inline-block', marginLeft: '.5rem', fontSize: '.65rem', fontWeight: 700, color: '#4ade80', background: 'rgba(74,222,128,.12)', border: '1px solid rgba(74,222,128,.25)', padding: '.1rem .45rem', borderRadius: '4px', letterSpacing: '.05em', textTransform: 'uppercase', verticalAlign: 'middle' }}>Live</span>
+                </a>
+              </li>
+              <li><Link to="/products">View Full Roadmap</Link></li>
             </ul>
           </div>
           <div className="footer-col">
@@ -49,19 +52,21 @@ export default function Footer() {
             </ul>
           </div>
           <div className="footer-col">
-            <h4>Contact</h4>
+            <h4>Get in Touch</h4>
             <ul>
               <li><a href="mailto:info@ciyahi.com">info@ciyahi.com</a></li>
-              <li><Link to="/contact">Schedule a Call</Link></li>
-              <li><a href="https://www.invoaice.io" target="_blank" rel="noreferrer">InvoAIce.io</a></li>
+              <li><Link to="/contact?dp=1">Apply: Design Partner</Link></li>
+              <li><a href="https://www.invoaice.io" target="_blank" rel="noreferrer">Visit InvoAIce.io</a></li>
             </ul>
           </div>
           <div className="footer-col">
             <h4>Careers</h4>
             <ul>
-              <li><Link to="/contact">We're Hiring</Link></li>
-              <li><a href="mailto:careers@ciyahi.com">careers@ciyahi.com</a></li>
-              <li><Link to="/about">Our Culture</Link></li>
+              <li><Link to="/contact">We&rsquo;re Hiring</Link></li>
+              <li>
+                {/* No dedicated careers inbox yet — route to info@ with a clear subject */}
+                <a href="mailto:info@ciyahi.com?subject=Career%20Enquiry%20%E2%80%94%20Ciyahi%20Website">Career enquiries</a>
+              </li>
             </ul>
           </div>
         </div>

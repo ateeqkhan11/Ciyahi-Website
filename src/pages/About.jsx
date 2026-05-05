@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { Globe, Building2, Award, Calendar } from 'lucide-react'
 import SEO from '../components/SEO'
 import JsonLd from '../components/JsonLd'
 import { buildBreadcrumb } from '../seo/schema'
@@ -27,10 +28,10 @@ const founders = [
 ]
 
 const credentials = [
-  { icon: '🌍', stat: '25+', label: 'Countries', desc: 'AP Automation and integration projects delivered across North America, Europe, Middle East & APAC.' },
-  { icon: '🏢', stat: '20+', label: 'Enterprises', desc: 'Full-cycle AP Automation implementations delivered for enterprise clients globally.' },
-  { icon: '🏆', stat: '#1', label: 'Award', desc: 'Best Designed AP Automation Solution & Implementation — recognised at industry level.' },
-  { icon: '📅', stat: '15+', label: 'Years', desc: 'Hands-on enterprise technology leadership across AP automation, integration, and AI.' },
+  { Icon: Globe, stat: '25+', label: 'Countries', desc: 'AP Automation and integration projects delivered across North America, Europe, Middle East & APAC.' },
+  { Icon: Building2, stat: '20+', label: 'Enterprises', desc: 'Full-cycle AP Automation implementations delivered for enterprise clients globally.' },
+  { Icon: Award, stat: '#1', label: 'Award', desc: "Founding team's AP automation work won an industry award for 'Best Designed Solution & Implementation' before Ciyahi was founded." },
+  { Icon: Calendar, stat: '15+', label: 'Years', desc: 'Hands-on enterprise technology leadership across AP automation, integration, and AI.' },
 ]
 
 const structure = [
@@ -79,7 +80,9 @@ export default function About() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))', gap: '1.5rem' }}>
               {credentials.map(c => (
                 <div key={c.label} className="card" style={{ textAlign: 'center', padding: '2rem 1.5rem', borderTop: '3px solid transparent', borderImage: 'linear-gradient(90deg,#5b21b6,#0284c7) 1' }}>
-                  <div style={{ fontSize: '1.75rem', marginBottom: '.375rem' }}>{c.icon}</div>
+                  <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '.625rem' }}>
+                    <c.Icon size={28} strokeWidth={1.6} style={{ color: '#5b21b6' }} />
+                  </div>
                   <div style={{ fontSize: '2.25rem', fontWeight: 800, background: 'linear-gradient(135deg,#5b21b6,#0284c7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', lineHeight: 1.1, marginBottom: '.25rem' }}>{c.stat}</div>
                   <div style={{ fontSize: '.7rem', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', color: '#64748b', marginBottom: '.625rem' }}>{c.label}</div>
                   <p style={{ fontSize: '.8375rem', lineHeight: 1.65 }}>{c.desc}</p>
@@ -92,9 +95,9 @@ export default function About() {
           <div style={{ background: 'linear-gradient(135deg,#faf5ff,#f0f9ff)', border: '1px solid rgba(91,33,182,.15)', borderRadius: '16px', padding: '2.5rem 3rem', marginBottom: '5rem', display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
             <div style={{ fontSize: '3.5rem', flexShrink: 0 }}>🏆</div>
             <div style={{ flex: 1 }}>
-              <div style={{ fontSize: '.7rem', fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: '#7c3aed', marginBottom: '.5rem' }}>Industry Recognition</div>
-              <h3 style={{ fontSize: '1.25rem', marginBottom: '.5rem' }}>Best Designed AP Automation Solution & Implementation</h3>
-              <p style={{ fontSize: '.9375rem', maxWidth: '540px' }}>Our founding team's AP Automation work has been recognised at industry level — reflecting the rigour, depth, and innovation behind every engagement we deliver.</p>
+              <div style={{ fontSize: '.7rem', fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: '#7c3aed', marginBottom: '.5rem' }}>Industry Recognition · Pre-Ciyahi</div>
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '.5rem' }}>Recognised for &ldquo;Best Designed AP Automation Solution &amp; Implementation&rdquo;</h3>
+              <p style={{ fontSize: '.9375rem', maxWidth: '560px' }}>An industry award presented to our founding team for AP automation work delivered <strong>before Ciyahi was founded</strong>. The same rigour, depth, and finance-native instinct now shapes every Ciyahi product and engagement.</p>
             </div>
           </div>
 
@@ -102,10 +105,10 @@ export default function About() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center', marginBottom: '6rem' }}>
             <div>
               <div className="label">Why We Exist</div>
-              <h2 style={{ marginBottom: '1.5rem' }}>The Problem With Enterprise Technology Consulting</h2>
-              <p style={{ marginBottom: '1rem' }}>Most technology firms sell outcomes and deliver effort. The partner leads the pitch. A junior team delivers the project. The client pays for hours, not results.</p>
-              <p style={{ marginBottom: '1rem' }}>We built Ciyahi to change that. Every engagement is founder-led, outcome-scoped, and priced on delivery — not time.</p>
-              <p>The name "Ciyahi" means <em>ink</em> — permanent, precise, and transformative. We turn strategy into outcomes that last.</p>
+              <h2 style={{ marginBottom: '1.5rem' }}>Enterprise finance is sold like consulting.</h2>
+              <p style={{ marginBottom: '1rem' }}>Long implementations. Vague outcomes. AI bolted on after the fact. Most enterprise finance software still gets delivered the way it did fifteen years ago — a senior partner runs the pitch, a junior team delivers the project, and AI shows up as a marketing checkbox.</p>
+              <p style={{ marginBottom: '1rem' }}>We built Ciyahi to change all three. Finance-native AI from day one. Live in 4 weeks. Outcome-priced. Same product across SMB, mid-market, and enterprise — different shape of the perimeter.</p>
+              <p>The name &ldquo;Ciyahi&rdquo; means <em>ink</em> — permanent, precise, and transformative. We turn strategy into outcomes that last.</p>
             </div>
             <div className="card" style={{ padding: '2.5rem', background: 'linear-gradient(135deg,#faf5ff,#f0f9ff)', borderColor: 'rgba(91,33,182,.15)' }}>
               <div style={{ fontSize: '3rem', marginBottom: '1.25rem' }}>✒️</div>

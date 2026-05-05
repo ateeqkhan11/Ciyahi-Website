@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 
-const LAST_UPDATED = 'April 29, 2026'
+const LAST_UPDATED = 'May 4, 2026'
 
 export default function Privacy() {
   return (

@@ -1,5 +1,9 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import {
+  FileText, ScanLine, Shield, CheckCircle2, GitMerge, UserCheck, Plug, Bell,
+  Brain, Layers, TrendingDown, Bot,
+} from 'lucide-react'
 import AnimatedCounter from '../components/AnimatedCounter'
 import SEO from '../components/SEO'
 import JsonLd from '../components/JsonLd'
@@ -77,7 +81,8 @@ const cycles = [
     stages: [
       { stage: 'Procurement', detail: 'PR · Approval · PO · Goods receipt', product: null },
       { stage: 'Invoice Processing', detail: 'Capture · 3-way match · Approve · Pay', product: { name: 'InvoAIce', status: 'Live now', live: true } },
-      { stage: 'Compliance', detail: 'Expense management · VAT / Tax', product: { name: 'On the roadmap', status: '', live: false, faded: true } },
+      { stage: 'Expense Management', detail: 'T&E · Reimbursement · Spend management', product: { name: 'On the roadmap', status: '', live: false, faded: true } },
+      { stage: 'Tax & Compliance', detail: 'VAT · Sales tax · Filing', product: { name: 'On the roadmap', status: '', live: false, faded: true } },
     ],
   },
   {
@@ -90,21 +95,22 @@ const cycles = [
     stages: [
       { stage: 'Revenue Ops', detail: 'Order · Credit · Fulfilment · AR invoice', product: null },
       { stage: 'Collections', detail: 'AR tracking · Cash application · Deductions', product: { name: 'On the roadmap', status: '', live: false, faded: true } },
-      { stage: 'Close & Compliance', detail: 'Contracts · Treasury · Reconciliation', product: { name: 'On the roadmap', status: '', live: false, faded: true } },
+      { stage: 'Contracts', detail: 'Customer contracts · Lifecycle · Obligations', product: { name: 'On the roadmap', status: '', live: false, faded: true } },
+      { stage: 'Close', detail: 'Treasury · Reconciliation · Period close', product: { name: 'On the roadmap', status: '', live: false, faded: true } },
     ],
   },
 ]
 
 // ── InvoAIce's 8-agent swarm — concrete proof the product is real ──────────
 const agents = [
-  { icon: '📄', title: 'DocIntel', desc: 'Captures from email, portals, EDI, and scans.' },
-  { icon: '🔬', title: 'OCR', desc: 'Extracts header, line, and tax data with high accuracy.' },
-  { icon: '🛡️', title: 'Fraud', desc: '14 fraud signals on every invoice, including BEC.' },
-  { icon: '✅', title: 'Validation', desc: '15+ rule-based and ML checks before posting.' },
-  { icon: '🔗', title: 'Matching', desc: '3-way PO/GRN match with configurable tolerance.' },
-  { icon: '👤', title: 'Approval', desc: 'Auto-routes by amount, role, vendor — with SLA.' },
-  { icon: '🔌', title: 'ERP', desc: 'Posts cleanly into SAP, Oracle, NetSuite, D365.' },
-  { icon: '🔔', title: 'Notify', desc: 'Email, vendor status, and zero-gap audit trail.' },
+  { Icon: FileText, title: 'DocIntel', desc: 'Captures from email, portals, EDI, and scans.' },
+  { Icon: ScanLine, title: 'OCR', desc: 'Extracts header, line, and tax data with high accuracy.' },
+  { Icon: Shield, title: 'Fraud', desc: '14 fraud signals on every invoice, including BEC.' },
+  { Icon: CheckCircle2, title: 'Validation', desc: '15+ rule-based and ML checks before posting.' },
+  { Icon: GitMerge, title: 'Matching', desc: '3-way PO/GRN match with configurable tolerance.' },
+  { Icon: UserCheck, title: 'Approval', desc: 'Auto-routes by amount, role, vendor — with SLA.' },
+  { Icon: Plug, title: 'ERP', desc: 'Posts cleanly into SAP, Oracle, NetSuite, D365.' },
+  { Icon: Bell, title: 'Notify', desc: 'Email, vendor status, and zero-gap audit trail.' },
 ]
 
 // ── Customer journey: getting InvoAIce live ────────────────────────────────
@@ -137,9 +143,9 @@ const journey = [
 
 // ── Why Ciyahi: three pillars, sharpened to avoid "incomplete platform" feel ─
 const whys = [
-  { icon: '🧠', title: 'Finance-Native AI', desc: 'Purpose-built agents trained on AP, AR, and procurement workflows — not generic LLMs adapted for finance.' },
-  { icon: '🏗️', title: 'Built to Compound', desc: 'Shared ERP connectors. Shared data model. Today that powers InvoAIce; tomorrow it lets us add finance capabilities without a second integration project.' },
-  { icon: '🔌', title: 'ERP Augmentation', desc: 'Sits alongside SAP, Oracle, NetSuite, and D365 — no rip-and-replace. Your ERP stays. We make it 10× smarter.' },
+  { Icon: Brain, title: 'Finance-Native AI', desc: 'Purpose-built agents trained on AP, AR, and procurement workflows — not generic LLMs adapted for finance.' },
+  { Icon: Layers, title: 'Built to Compound', desc: 'Shared ERP connectors. Shared data model. Today that powers InvoAIce; tomorrow it lets us add finance capabilities without a second integration project.' },
+  { Icon: Plug, title: 'ERP Augmentation', desc: 'Sits alongside SAP, Oracle, NetSuite, and D365 — no rip-and-replace. Your ERP stays. We make it 10× smarter.' },
 ]
 
 // ── What's Next: roadmap, clearly subordinate to today's product ───────────
@@ -151,9 +157,9 @@ const roadmap = [
 ]
 
 const insights = [
-  { tag: 'AP Automation', title: 'Why AI-Native AP Automation Is the Next Enterprise Frontier', date: 'April 2026', read: '6 min', bg: 'linear-gradient(135deg,#f5f3ff,#ede9fe)', emoji: '📄' },
-  { tag: 'O2C', title: 'Why DSO Creep Is a Symptom — Not the Disease', date: 'April 2026', read: '7 min', bg: 'linear-gradient(135deg,#f0fdf4,#d1fae5)', emoji: '💸' },
-  { tag: 'AI Strategy', title: 'Finance-Native AI vs Generic LLMs: Why the Difference Matters', date: 'March 2026', read: '5 min', bg: 'linear-gradient(135deg,#f0f9ff,#e0f2fe)', emoji: '🤖' },
+  { tag: 'AP Automation', title: 'Why AI-Native AP Automation Is the Next Enterprise Frontier', date: 'April 2026', read: '6 min', bg: 'linear-gradient(135deg,#f5f3ff,#ede9fe)', Icon: FileText, iconColor: '#5b21b6' },
+  { tag: 'O2C', title: 'Why DSO Creep Is a Symptom — Not the Disease', date: 'April 2026', read: '7 min', bg: 'linear-gradient(135deg,#f0fdf4,#d1fae5)', Icon: TrendingDown, iconColor: '#059669' },
+  { tag: 'AI Strategy', title: 'Finance-Native AI vs Generic LLMs: Why the Difference Matters', date: 'March 2026', read: '5 min', bg: 'linear-gradient(135deg,#f0f9ff,#e0f2fe)', Icon: Bot, iconColor: '#1d4ed8' },
 ]
 
 export default function Home() {
@@ -206,7 +212,7 @@ export default function Home() {
             <p className="hero-sub">Ciyahi builds AI-native finance products for <strong>SMB, mid-market, and enterprise teams</strong>. <strong>Our aspiration is to cover the full Procure-to-Pay and Order-to-Cash cycle</strong> — and we're shipping it one product at a time. <strong>InvoAIce.io</strong>, our AP automation flagship, is live in production today, integrated with SAP, Oracle, NetSuite, D365, QuickBooks, Xero, and Sage. Connect your ERP, configure approvals, go live in 4 weeks.</p>
             <div className="hero-actions">
               <a href="https://www.invoaice.io" target="_blank" rel="noreferrer" className="btn btn-primary btn-lg">Visit InvoAIce.io →</a>
-              <Link to="/contact" className="btn btn-secondary btn-lg">Apply for Design Partner Program</Link>
+              <Link to="/contact?dp=1" className="btn btn-secondary btn-lg">Apply for Design Partner Program</Link>
             </div>
             <p className="hero-note" style={{ fontSize: '.825rem', color: 'var(--tm)', marginTop: '1.5rem', display: 'flex', alignItems: 'center', gap: '.375rem' }}>
               <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#10b981', display: 'inline-block' }} />
@@ -287,7 +293,9 @@ export default function Home() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
             {agents.map(a => (
               <div key={a.title} className="card agent-card" style={{ padding: '1.25rem' }}>
-                <div style={{ fontSize: '1.5rem', marginBottom: '.5rem' }}>{a.icon}</div>
+                <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'linear-gradient(135deg,rgba(91,33,182,.08),rgba(124,58,237,.12))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '.75rem' }}>
+                  <a.Icon size={22} strokeWidth={1.7} style={{ color: '#5b21b6' }} />
+                </div>
                 <strong style={{ display: 'block', color: '#5b21b6', marginBottom: '.375rem', fontSize: '.95rem' }}>{a.title}</strong>
                 <span style={{ fontSize: '.825rem', color: 'var(--ts)', lineHeight: 1.55, display: 'block' }}>{a.desc}</span>
               </div>
@@ -330,7 +338,9 @@ export default function Home() {
           <div className="grid-3">
             {whys.map(w => (
               <div key={w.title} className="card why-card">
-                <div className="card-icon">{w.icon}</div>
+                <div className="card-icon" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(135deg,rgba(91,33,182,.08),rgba(124,58,237,.12))' }}>
+                  <w.Icon size={28} strokeWidth={1.6} style={{ color: '#5b21b6' }} />
+                </div>
                 <h3>{w.title}</h3>
                 <p>{w.desc}</p>
               </div>
@@ -374,12 +384,14 @@ export default function Home() {
           <div className="grid-3">
             {insights.map(ins => (
               <div key={ins.title} className="insight-card">
-                <div className="insight-img" style={{ background: ins.bg }}>{ins.emoji}</div>
+                <div className="insight-img" style={{ background: ins.bg, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <ins.Icon size={48} strokeWidth={1.5} style={{ color: ins.iconColor }} />
+                </div>
                 <div className="insight-body">
                   <span className="insight-tag">{ins.tag}</span>
                   <h3>{ins.title}</h3>
                   <p style={{ fontSize: '.9rem' }}>Practical perspectives on enterprise AI, finance automation, and how to actually ship it.</p>
-                  <div className="insight-meta">{ins.date} &bull; {ins.read} read</div>
+                  <div className="insight-meta" style={{ color: 'var(--violet)', fontWeight: 600 }}>Coming soon</div>
                 </div>
               </div>
             ))}
@@ -394,7 +406,7 @@ export default function Home() {
             <h2>Stop paying $25 to process a $50 invoice.</h2>
             <p>Join the InvoAIce Design Partner Program. 60 days completely free. Five spots only. Founder-led pilot, locked-in pricing, and a working AP automation system in 4 weeks. We get a logo, a case study, and reference calls.</p>
             <div className="cta-actions">
-              <Link to="/contact" className="btn btn-primary">Apply for Design Partner Program →</Link>
+              <Link to="/contact?dp=1" className="btn btn-primary">Apply for Design Partner Program →</Link>
               <a href="https://www.invoaice.io" target="_blank" rel="noreferrer" className="btn btn-secondary">Visit InvoAIce.io</a>
             </div>
           </div>
