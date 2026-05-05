@@ -1,6 +1,12 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
+import JsonLd from '../components/JsonLd'
+import { buildBreadcrumb } from '../seo/schema'
+
+const breadcrumbSchema = buildBreadcrumb([
+  { name: 'Services', path: '/services' },
+])
 
 const services = [
   {
@@ -24,34 +30,34 @@ const services = [
   },
   {
     icon: '🤖',
-    title: 'AI-Driven Automation',
-    tag: 'New Capability',
+    title: 'AI for Finance Operations',
+    tag: 'Adjacent to Product',
     tagColor: '#0284c7',
     tagBg: 'rgba(2,132,199,.08)',
-    desc: 'We build intelligent automation frameworks using LLMs, AI agents, and orchestration layers — replacing brittle RPA and manual workflows with systems that reason, adapt, and scale.',
+    desc: 'Beyond AP, the CFO\'s office runs on contracts, remittances, expense claims, and procurement docs that all need automation. We build finance-native AI — agents and LLM-backed workflows — for the gaps InvoAIce does not yet cover.',
     outcomes: [
-      'AI agent design and deployment for finance, procurement, and operational workflows',
-      'LLM integration into existing enterprise systems and data pipelines',
+      'AI agent design and deployment for finance, procurement, and AR workflows',
+      'LLM integration into existing finance systems and data pipelines',
       'Intelligent document processing beyond invoices: contracts, purchase orders, remittances',
-      'Process mining and automation opportunity identification',
-      'Human-in-the-loop escalation design for high-risk decisions',
+      'Process mining and automation opportunity identification across the finance function',
+      'Human-in-the-loop escalation design for high-risk financial decisions',
     ],
-    kpis: ['Outcome-scoped delivery', 'Faster than RPA', 'Auditable AI decisions'],
+    kpis: ['Finance-native', 'Faster than RPA', 'Auditable AI decisions'],
     emoji: '🤖',
   },
   {
     icon: '🔗',
-    title: 'Integration Modernisation',
+    title: 'Finance ERP Integration',
     tag: 'Enterprise Capability',
     tagColor: '#0284c7',
     tagBg: 'rgba(2,132,199,.08)',
-    desc: "Legacy ESBs and point-to-point integrations don't scale. We architect and deliver modern integration patterns — API-led, event-driven, and cloud-native — using platforms your team already operates.",
+    desc: "InvoAIce posts cleanly into SAP, Oracle, NetSuite, and D365 out of the box. When the rest of your finance stack needs help — legacy ESBs, point-to-point integrations, brittle file-based feeds — we modernise the connectivity layer your finance systems depend on.",
     outcomes: [
-      'Integration architecture assessment: current state mapping, gap analysis, roadmap',
+      'Finance integration architecture assessment: current state mapping, gap analysis, roadmap',
       'Migration from legacy ESB (IBM, TIBCO, Oracle SOA) to modern middleware',
-      'MuleSoft, Boomi, Azure Integration Services, AWS EventBridge implementation',
-      'API design, governance, and lifecycle management',
-      'Real-time event streaming and async messaging architecture',
+      'MuleSoft, Boomi, Azure Integration Services, AWS EventBridge implementation for finance flows',
+      'API design and governance for AP, AR, GL, and treasury integrations',
+      'Real-time event streaming and async messaging for finance operations',
       'Integration monitoring, alerting, and operational runbooks',
     ],
     kpis: ['Reduced integration debt', 'Cloud-native patterns', 'Full operational handover'],
@@ -59,18 +65,18 @@ const services = [
   },
   {
     icon: '🧭',
-    title: 'IT Strategy & Advisory',
+    title: 'Finance AI Strategy & Advisory',
     tag: 'Advisory',
     tagColor: '#5b21b6',
     tagBg: 'rgba(91,33,182,.08)',
-    desc: 'Technology strategy without implementation context is a guess. We bring 15+ years of enterprise delivery experience to your architecture reviews, digital transformation planning, and technology investment decisions.',
+    desc: 'Most CFOs know they need AI in their finance function. Few know where to start, what to buy, what to build, and how to sequence it. We help you draw the map — grounded in 15+ years of enterprise finance technology delivery.',
     outcomes: [
-      'Current-state technology and integration assessment',
-      'Digital transformation roadmap with sequenced, deliverable milestones',
-      'Build vs. buy analysis for AI, automation, and integration tooling',
-      'CTO/CISO advisory on architecture decisions and technology risk',
-      'Vendor evaluation and selection support',
-      'Board and investor-ready technology narrative development',
+      'Current-state finance technology and process assessment',
+      'AI-for-finance roadmap with sequenced, outcome-scoped milestones',
+      'Build vs. buy analysis across AP, AR, treasury, close, and procurement',
+      'CFO and Controller advisory on AI-in-finance decisions and risk',
+      'Vendor evaluation: AP automation, AR automation, expense, treasury, close',
+      'Board and investor-ready finance technology narrative',
     ],
     kpis: ['Outcome-scoped', 'Founder-led', 'No junior handoff'],
     emoji: '🧭',
@@ -84,25 +90,62 @@ const methodology = [
   { num: '04', title: 'Embed', desc: 'We train your people, document everything, and ensure the solution runs without us. Outcomes, not dependency.' },
 ]
 
+// Cloud / integration / AI platforms we work alongside finance products
+const techStack = [
+  { icon: '☁️', name: 'Microsoft Azure' },
+  { icon: '🟠', name: 'AWS' },
+  { icon: '🔗', name: 'MuleSoft' },
+  { icon: '🔵', name: 'Boomi' },
+  { icon: '⚡', name: 'OpenAI' },
+  { icon: '🟡', name: 'Oracle' },
+  { icon: '🟢', name: 'SAP' },
+  { icon: '📊', name: 'NetSuite' },
+  { icon: '🔷', name: 'Salesforce' },
+  { icon: '🛠️', name: 'ServiceNow' },
+  { icon: '🐍', name: 'Python / LangChain' },
+]
+
+// AP automation platforms the founding team has implemented in prior engagements
+const apStack = [
+  { icon: '📄', name: 'Basware' },
+  { icon: '🔍', name: 'Kofax' },
+  { icon: '🗂️', name: 'Oracle WebCenter' },
+  { icon: '🖨️', name: 'Canon' },
+  { icon: '🧠', name: 'ABBYY' },
+  { icon: '🗄️', name: 'Document Management' },
+  { icon: '🚀', name: 'InvoAIce.io' },
+]
+
+// Founding team expertise highlights
+const expertise = [
+  { icon: '📄', text: '15+ Years AP Automation Experience' },
+  { icon: '🔗', text: 'Enterprise Integration Specialists' },
+  { icon: '🤖', text: 'AI Agent Deployment' },
+  { icon: '🌍', text: 'US & UK Market Presence' },
+  { icon: '🏗️', text: 'Founder-Led Every Engagement' },
+]
+
 export default function Services() {
   useEffect(() => { document.title = 'Services — Ciyahi Limited' }, [])
 
   return (
     <>
       <SEO
-        title="Services"
+        title="Finance Automation Services"
         path="/services"
-        description="Founder-led AP automation, AI-driven automation, integration modernisation, and IT strategy. Outcome-priced delivery from a team with 15+ years of enterprise experience."
+        description="Finance automation services from Ciyahi: AP automation implementation, AI for finance operations, finance ERP integration, and finance AI strategy. Founder-led, outcome-priced. Surrounds our InvoAIce.io product."
+        keywords="AP automation services, finance ERP integration, AP automation consulting, finance AI consulting, AP implementation services, MuleSoft finance integration, Boomi finance integration, AP automation implementation"
       />
+      <JsonLd schema={breadcrumbSchema} />
       <section className="page-hero">
         <div className="page-hero-blob blob-hero-1" />
         <div className="page-hero-blob blob-hero-2" />
         <div className="container">
           <div className="page-hero-content">
             <div className="label">What We Do</div>
-            <h1>Founder-Led Services.<br />Outcome-Priced Delivery.</h1>
-            <p style={{ maxWidth: '580px', margin: '0 auto', fontSize: '1.075rem' }}>
-              Every engagement is led by a founder from first call to final handover. We scope on outcomes, not time — so you always know exactly what you are paying for.
+            <h1>Services that surround<br /><span className="gradient-text">our products.</span></h1>
+            <p style={{ maxWidth: '600px', margin: '0 auto', fontSize: '1.075rem' }}>
+              Ciyahi is a finance automation company. Our flagship product, <strong>InvoAIce.io</strong>, is in production today. The services below sit alongside it — implementing AP automation cleanly, integrating finance ERPs, and helping CFOs plan their AI roadmap. Founder-led. Outcome-priced.
             </p>
           </div>
         </div>
@@ -166,6 +209,53 @@ export default function Services() {
               </div>
             </div>
           ))}
+
+          {/* Other technologies we work with */}
+          <div className="tech-strip" style={{ marginBottom: '4rem', borderRadius: 'var(--rlg)' }}>
+            <div className="container">
+              <p className="tech-strip-label">Other Technologies We Work With</p>
+              <div className="tech-pills" style={{ marginBottom: '2rem' }}>
+                {techStack.map(t => (
+                  <span key={t.name} className="tech-pill">
+                    <span className="tech-pill-icon">{t.icon}</span>
+                    {t.name}
+                  </span>
+                ))}
+              </div>
+              <div style={{ height: '1px', background: 'var(--b)', margin: '0 auto 1.75rem', maxWidth: '600px' }} />
+              <p className="tech-strip-label">AP Platforms — Founding Team Experience</p>
+              <div className="tech-pills">
+                {apStack.map(t => (
+                  <span
+                    key={t.name}
+                    className="tech-pill"
+                    style={{
+                      borderColor: 'rgba(91,33,182,.2)',
+                      color: t.name === 'InvoAIce.io' ? 'var(--violet)' : undefined,
+                      fontWeight: t.name === 'InvoAIce.io' ? 600 : undefined,
+                    }}
+                  >
+                    <span className="tech-pill-icon">{t.icon}</span>
+                    {t.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Founding team expertise strip */}
+          <div className="exp-strip" style={{ marginBottom: '5rem', borderRadius: 'var(--rlg)' }}>
+            <div className="container">
+              <div className="exp-strip-inner">
+                {expertise.map(e => (
+                  <div key={e.text} className="exp-item">
+                    <span className="exp-item-icon">{e.icon}</span>
+                    <span>{e.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
 
           {/* Methodology */}
           <div style={{ marginBottom: '5rem' }}>

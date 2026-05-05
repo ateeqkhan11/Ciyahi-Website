@@ -1,5 +1,11 @@
 import { useEffect, useState } from 'react'
 import SEO from '../components/SEO'
+import JsonLd from '../components/JsonLd'
+import { buildBreadcrumb } from '../seo/schema'
+
+const breadcrumbSchema = buildBreadcrumb([
+  { name: 'Contact', path: '/contact' },
+])
 
 export default function Contact() {
   const [step, setStep] = useState(0)
@@ -36,10 +42,12 @@ export default function Contact() {
   return (
     <>
       <SEO
-        title="Contact"
+        title="Contact Ciyahi · Apply for Design Partner Program"
         path="/contact"
-        description="Schedule a strategy call with Ciyahi. Every conversation starts with a founder — not an account manager."
+        description="Apply for the InvoAIce Design Partner Program. 60 days completely free, 5 spots only, live in 4 weeks. Or schedule a strategy call with the founders."
+        keywords="InvoAIce design partner, AP automation pilot, free AP automation trial, finance automation strategy call, Ciyahi contact"
       />
+      <JsonLd schema={breadcrumbSchema} />
       <section className="page-hero">
         <div className="page-hero-blob blob-hero-1" />
         <div className="page-hero-blob blob-hero-2" />

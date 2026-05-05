@@ -16,10 +16,11 @@
 
 const SITE = 'https://ciyahi.com'
 const SITE_NAME = 'Ciyahi Limited'
-const DEFAULT_TITLE = 'Ciyahi Limited — AI Products & Technology Services'
+const DEFAULT_TITLE = 'Ciyahi — AI Finance Automation, Starting With InvoAIce.io'
 const DEFAULT_DESC =
-  'Ciyahi Limited builds AI-native products and delivers outcome-driven technology services for enterprises. Founder-led. Outcome-priced. Built to last.'
+  'Ciyahi builds AI-native finance products. Our flagship — InvoAIce.io — is an AI AP automation platform live in production today, integrated with SAP, Oracle, NetSuite, D365, and QuickBooks. Live in 4 weeks.'
 const DEFAULT_IMAGE = '/og-image.png' // 1200x630 — drop one in /public
+const DEFAULT_KEYWORDS = 'AI finance automation, AP automation, accounts payable AI, invoice automation, InvoAIce, AI AP platform, finance AI agents, SAP AP automation, Oracle AP automation, NetSuite AP automation, AI invoice processing, AP automation software'
 
 export default function SEO({
   title,
@@ -27,6 +28,7 @@ export default function SEO({
   path = '',
   image = DEFAULT_IMAGE,
   type = 'website',
+  keywords = DEFAULT_KEYWORDS,
   noindex = false,
 }) {
   const fullTitle = title ? `${title} — ${SITE_NAME}` : DEFAULT_TITLE
@@ -37,6 +39,7 @@ export default function SEO({
     <>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={url} />
       {noindex && <meta name="robots" content="noindex, nofollow" />}
 

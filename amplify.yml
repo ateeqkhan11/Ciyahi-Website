@@ -38,11 +38,14 @@ customHeaders:
         value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()'
       # Content Security Policy
       # - Inline styles allowed because the codebase uses lots of React `style={{...}}` props
+      # - Inline scripts allowed for JSON-LD structured data (schema.org). Most browsers
+      #   enforce script-src on all <script> tags regardless of type, so the
+      #   `application/ld+json` blocks need 'unsafe-inline' to render. Tighten with
+      #   per-block SHA-256 hashes once the JSON-LD content is stable.
       # - Google Fonts on style-src + font-src
       # - Web3Forms POST endpoint on connect-src + form-action
-      # - Tighten further once inline styles are migrated to CSS classes
       - key: 'Content-Security-Policy'
-        value: "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
       # HTML and other non-asset files: never cache (so deploys go live immediately)
       - key: 'Cache-Control'
         value: 'public, max-age=0, must-revalidate'
