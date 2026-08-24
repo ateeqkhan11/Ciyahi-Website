@@ -15,6 +15,12 @@ frontend:
     paths:
       - node_modules/**/*
 
+# SPA deep-link rewrite: Amplify Console → Hosting → Rewrites and redirects
+# Source: </^[^.]+$|\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|woff2|ttf|map|json|webp)$)([^.]+$)/>
+# Target: /index.html
+# Type: 200 (Rewrite)
+# Without this, direct links to /about, /products, etc. can 404.
+
 # Custom headers must live at the root of amplify.yml (not under `frontend:`)
 # per AWS Amplify docs:
 # https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html

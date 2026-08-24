@@ -1,0 +1,53 @@
+---
+description: Ciyahi website project context — read before making any change
+alwaysApply: true
+---
+
+# Ciyahi website — project context
+
+Full handover doc: **`HANDOVER.md`** at the repo root. Read it before starting non-trivial work — it has
+the site map, the design-system component catalog, and the reasoning behind recent structural decisions.
+This file is the condensed version that's always in context.
+
+## What this is
+Marketing site for Ciyahi Limited (enterprise AI implementation company, flagship product InvoAIce.io —
+AP automation, live in production). React 19 + Vite 8 + React Router v7, no backend, content lives in JS
+arrays inside page components. Dev server: `npm run dev` (port 5173) — keep it running and verify visual
+changes in the browser, this is a design-sensitive marketing site.
+
+## Hard guardrails — do not violate these without explicit user instruction
+
+1. **No client names anywhere.** The one detailed case study (`/document-intelligence`, an insurance
+   document-intake + submission-to-quote pipeline) refers only to "an insurance brokerage" / "insurance
+   brokerages running real-estate consortium programs."
+2. **Risk modeling and pricing engines in that case study are third-party systems Ciyahi integrated
+   with — Ciyahi did NOT build them.** Copy must say things like "auto-submitted to the firm's risk
+   modeling and pricing systems," never "we built/run the risk model." This was an explicit correction
+   from the client — don't regress it.
+3. **Ateequeullah Khan is Non-Executive Director & Co-Founder** (H-1B visa constraint — he cannot hold an
+   active officer title in the US entity). Iqbal Shaikh is the active Director/CEO and is listed first.
+   Don't change either title without being told to.
+4. **Don't reintroduce old positioning**: this site used to be finance-automation-only and used DM Serif
+   Display for headings. Both were deliberately replaced with a broader "enterprise AI, any domain"
+   positioning and Space Grotesk headings. Don't drift back.
+5. **`/services` (generic capabilities) and `/use-cases` (concrete delivered proof) are intentionally
+   separate pages.** Don't merge the detailed case-study content back into the Services page — that was
+   tried and explicitly reverted for being bloated. Services links out to Use Cases via the compact
+   `.promo-banner` component instead.
+
+## Design system — reuse before inventing
+`src/styles/style.css` has the full component catalog. Key reusable pieces, see HANDOVER.md §6 for
+details: `.hero` (dark drifting gradient + `.hero-cycle` rotating headline word), `.orbit` (animated
+system diagram), magnetic-tilt on `.svc-tile` (mouse-tracked 3D card tilt, driven from a `useEffect` in
+`Home.jsx`), `.pipe` (animated flowing-light pipeline/timeline), `.app-window` (fake product-UI mockup
+for "show, don't tell"), `.promo-banner` (compact callout linking to deeper content), `.featured-svc`
+(large dark story block — currently only on `/document-intelligence`, don't duplicate elsewhere).
+
+## Copy style
+Short. Tile/card descriptions are one tight sentence. Long-form prose belongs on deep-dive pages like
+`/document-intelligence`, not on listing pages.
+
+## Known TODOs (see HANDOVER.md §7 for details)
+AWS Amplify SPA rewrite rule not yet set in console (direct links to non-root routes may 404 until fixed);
+`public/og-image.png` is missing (social share previews broken); `/use-cases` has one real card + one
+honest placeholder — don't fabricate a second case study, add one when it's real.

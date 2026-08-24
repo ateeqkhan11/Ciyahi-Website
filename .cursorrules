@@ -1,0 +1,21 @@
+# Ciyahi website — read HANDOVER.md at the repo root first
+
+This is the Ciyahi Limited marketing site (enterprise AI implementation company; flagship product
+InvoAIce.io, live in production). React 19 + Vite 8 + React Router v7, no backend. `npm run dev` for the
+dev server (port 5173) — verify visual changes in the browser, this is a design-sensitive site.
+
+Full context, site map, and design-system component catalog: **HANDOVER.md**.
+Condensed always-on rules: **.cursor/rules/project-context.mdc**.
+
+Non-negotiables:
+- No client names anywhere on the site.
+- The insurance-brokerage case study's risk modeling and pricing systems are THIRD-PARTY — Ciyahi built
+  the automation feeding them, not the systems themselves. Never imply otherwise.
+- Ateequeullah Khan = Non-Executive Director & Co-Founder (H-1B constraint, don't change). Iqbal Shaikh =
+  active Director/CEO, listed first.
+- Don't reintroduce finance-only positioning or the DM Serif Display font — both were deliberately
+  replaced.
+- Keep `/services` (generic capabilities) and `/use-cases` (concrete delivered proof) separate — this was
+  explicitly split after the case-study content made Services feel bloated.
+
+Read HANDOVER.md before any non-trivial change.

@@ -161,7 +161,7 @@ export default function Terms() {
               Questions about these Terms? Email <a href="mailto:info@ciyahi.com">info@ciyahi.com</a>.
             </p>
 
-            <p style={{ marginTop: '2.5rem', padding: '1rem 1.25rem', background: '#f8f8fd', borderLeft: '3px solid #7c3aed', borderRadius: '0 8px 8px 0', fontSize: '.875rem', color: '#475569', fontStyle: 'italic' }}>
+            <p style={{ marginTop: '2.5rem', padding: '1rem 1.25rem', background: 'var(--paper-2)', borderLeft: '3px solid var(--accent-l)', borderRadius: '0 8px 8px 0', fontSize: '.875rem', color: '#475569', fontStyle: 'italic' }}>
               These Terms apply to the Ciyahi marketing website only. Use of any Ciyahi product is governed by
               a separate written agreement.
             </p>

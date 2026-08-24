@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import useScrollReveal from '../hooks/useScrollReveal'
 import { FileText, ScanLine, Shield, CheckCircle2, GitMerge, UserCheck, Plug, Bell } from 'lucide-react'
 import SEO from '../components/SEO'
 import JsonLd from '../components/JsonLd'
@@ -77,26 +78,8 @@ const platformO2C = [
 ]
 
 export default function Products() {
-  useEffect(() => {
-    const els = document.querySelectorAll('.card, .agent-card, .platform-card, .insight-card, .roadmap-card')
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          setTimeout(() => { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)' }, Number(e.target.dataset.delay) || 0)
-          obs.unobserve(e.target)
-        }
-      })
-    }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' })
-    requestAnimationFrame(() => {
-      els.forEach((el, i) => {
-        el.style.opacity = '0'; el.style.transform = 'translateY(18px)'
-        el.style.transition = 'opacity .5s ease, transform .5s ease'
-        el.dataset.delay = (i % 4) * 80
-        obs.observe(el)
-      })
-    })
-    return () => obs.disconnect()
-  }, [])
+  useScrollReveal('.card, .agent-card, .platform-card, .insight-card, .roadmap-card, .reveal-block')
+  useEffect(() => { document.title = 'Products — Ciyahi Limited' }, [])
 
   return (
     <>
@@ -116,9 +99,11 @@ export default function Products() {
         <div className="container">
           <div className="page-hero-content">
             <div className="label">Our Products</div>
-            <h1>Our flagship — <span className="gradient-text">InvoAIce.io</span> —<br />is in production.</h1>
+            <h1>Eight products. One platform.<br /><span className="gradient-text">One is live today.</span></h1>
             <p style={{ maxWidth: '660px', margin: '0 auto', fontSize: '1.075rem' }}>
-              Ciyahi's aspiration is to cover the full Procure-to-Pay and Order-to-Cash cycle with finance-native AI agents. <strong>Today, InvoAIce ships</strong> — an AI-native AP automation platform integrated with SAP, Oracle, NetSuite, D365, and QuickBooks. The rest of our portfolio is sequenced on the roadmap.
+              The Ciyahi platform covers the full Procure-to-Pay and Order-to-Cash cycle — eight finance products
+              built on one data model and one set of ERP connectors. <strong>InvoAIce, our AP automation product, ships today</strong> —
+              live in production, integrated with SAP, Oracle, NetSuite, D365, and QuickBooks. The other seven are sequenced on the roadmap below.
             </p>
           </div>
         </div>
@@ -127,91 +112,19 @@ export default function Products() {
       <section className="section">
         <div className="container">
 
-          {/* INVOAICE SPOTLIGHT — centerpiece, immediately after hero */}
-          <div className="product-spot" style={{ marginBottom: '5rem' }}>
-            <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.5rem', marginBottom: '1.5rem' }}>
-              <div style={{ flex: 1, minWidth: '280px' }}>
-                <div className="prod-badge">🚀 In Production · Live Now</div>
-                <h2 style={{ marginTop: '.75rem', marginBottom: '.625rem' }}><span className="gradient-text">InvoAIce.io</span></h2>
-                <p style={{ maxWidth: '600px', fontSize: '1.0625rem', marginBottom: 0 }}>
-                  An AI-native Accounts Payable platform that turns invoice chaos into clean ERP posts. Eight specialist agents working as one autonomous pipeline. Sits alongside your ERP — no rip-and-replace, no 12-month IT project.
-                </p>
-              </div>
-              <div style={{ display: 'flex', gap: '.875rem', flexShrink: 0, alignSelf: 'flex-end', flexWrap: 'wrap' }}>
-                <a href="https://www.invoaice.io" target="_blank" rel="noreferrer" className="btn btn-primary">Visit InvoAIce.io →</a>
-                <Link to="/contact?dp=1" className="btn btn-secondary">Apply for Design Partner Program</Link>
-              </div>
-            </div>
-
-            {/* Hero stats */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', margin: '1.5rem 0', padding: '1.5rem', background: 'rgba(255,255,255,.7)', borderRadius: '12px', border: '1px solid rgba(91,33,182,.1)' }}>
-              {invoaiceStats.map(s => (
-                <div key={s.label} style={{ textAlign: 'center', padding: '.5rem' }}>
-                  <div style={{ fontSize: '1.625rem', fontWeight: 800, background: 'linear-gradient(135deg,#5b21b6,#0284c7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', lineHeight: 1.1, marginBottom: '.3rem' }}>{s.value}</div>
-                  <div style={{ fontSize: '.8rem', color: '#64748b', fontWeight: 500 }}>{s.label}</div>
-                </div>
-              ))}
-            </div>
-
-            {/* ERP integrations — proof of readiness */}
-            <div style={{ padding: '1.25rem 1.5rem', background: 'rgba(91,33,182,.04)', borderRadius: '10px', border: '1px solid rgba(91,33,182,.12)', marginBottom: '1rem' }}>
-              <div style={{ fontSize: '.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.08em', color: '#5b21b6', marginBottom: '.625rem' }}>Posts cleanly into</div>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '.4rem' }}>
-                <span style={{ fontSize: '.7rem', fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', marginRight: '.25rem', alignSelf: 'center' }}>Enterprise:</span>
-                {erpEnterprise.map(e => (
-                  <span key={e} className="tech-pill" style={{ fontSize: '.8125rem' }}>{e}</span>
-                ))}
-                <span style={{ fontSize: '.7rem', fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', margin: '0 .25rem', alignSelf: 'center' }}>· SMB:</span>
-                {erpSMB.map(e => (
-                  <span key={e} className="tech-pill" style={{ fontSize: '.8125rem' }}>{e}</span>
-                ))}
-              </div>
-            </div>
-
-            {/* ROI teaser — link to calculator on invoaice.io */}
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', padding: '1rem 1.5rem', background: 'rgba(91,33,182,.04)', borderRadius: '10px', border: '1px solid rgba(91,33,182,.12)' }}>
-              <div style={{ fontSize: '.9375rem', color: 'var(--ts)' }}>
-                At 2,000 invoices/month, modeled annual saving is <strong style={{ color: '#5b21b6' }}>~$109K</strong> versus a legacy AP stack.
-              </div>
-              <a href="https://www.invoaice.io/#calculator" target="_blank" rel="noreferrer" style={{ fontSize: '.875rem', fontWeight: 600, color: 'var(--violet)', textDecoration: 'none' }}>
-                Run your own numbers →
-              </a>
-            </div>
-          </div>
-
-          {/* INSIDE INVOAICE — 8-agent swarm */}
-          <div style={{ marginBottom: '5rem' }}>
+          {/* PLATFORM MAP — all eight products, up front */}
+          <div style={{ marginBottom: '5.5rem' }}>
             <div className="sec-head">
-              <div className="label">Inside InvoAIce</div>
-              <h2><span className="gradient-text">Eight specialist agents.</span> One autonomous AP pipeline.</h2>
-              <p>InvoAIce isn't a workflow tool with AI bolted on. Every invoice flows through a coordinated swarm of small, specialist agents — each purpose-built for one task in the AP cycle. The result: up to 90% touchless processing on day one, with full audit trail.</p>
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
-              {agents.map(a => (
-                <div key={a.title} className="card agent-card" style={{ padding: '1.25rem 1.25rem 1.375rem' }}>
-                  <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'linear-gradient(135deg,rgba(91,33,182,.08),rgba(124,58,237,.12))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '.75rem' }}>
-                    <a.Icon size={22} strokeWidth={1.7} style={{ color: '#5b21b6' }} />
-                  </div>
-                  <strong style={{ display: 'block', color: '#5b21b6', marginBottom: '.375rem', fontSize: '.95rem' }}>{a.title}</strong>
-                  <span style={{ fontSize: '.825rem', color: 'var(--ts)', lineHeight: 1.55, display: 'block' }}>{a.desc}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* OUR ASPIRATION — full P2P + O2C cycle, InvoAIce anchored, rest clearly future */}
-          <div style={{ marginBottom: '5rem' }}>
-            <div className="sec-head">
-              <div className="label">Our Aspiration</div>
-              <h2>The full finance cycle — <span className="gradient-text">shipped one product at a time.</span></h2>
-              <p>One data model, one set of ERP connectors, eight purpose-built finance products. <strong>InvoAIce is what ships today, in production.</strong> The rest is our roadmap — explicit about where we are now, honest about where we're headed.</p>
+              <div className="label">The Platform Map</div>
+              <h2>All eight products, <span className="gradient-text">at a glance.</span></h2>
+              <p>Every product extends the same ERP connectors and data model InvoAIce already deploys. Green means live in production today — everything else is labelled honestly: in build, designing, or on the roadmap.</p>
             </div>
 
             {/* P2P track */}
             <div style={{ marginBottom: '2rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '.75rem', marginBottom: '1rem' }}>
-                <span style={{ fontSize: '.7rem', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', color: '#5b21b6', background: 'rgba(91,33,182,.07)', padding: '.25rem .75rem', borderRadius: '6px' }}>P2P · Procure-to-Pay</span>
-                <div style={{ flex: 1, height: '1px', background: 'rgba(91,33,182,.15)' }} />
+                <span style={{ fontSize: '.7rem', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--accent)', background: 'rgba(13, 117, 117,.07)', padding: '.25rem .75rem', borderRadius: '6px' }}>P2P · Procure-to-Pay</span>
+                <div style={{ flex: 1, height: '1px', background: 'rgba(13, 117, 117,.15)' }} />
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '.75rem' }}>
                 {platformP2P.map(p => (
@@ -246,10 +159,82 @@ export default function Products() {
               </div>
             </div>
 
-            <div style={{ marginTop: '2rem', padding: '1rem 1.5rem', background: 'rgba(91,33,182,.04)', borderLeft: '3px solid #7c3aed', borderRadius: '0 8px 8px 0', maxWidth: '720px', margin: '2rem auto 0' }}>
+            <div style={{ marginTop: '2rem', padding: '1rem 1.5rem', background: 'rgba(13, 117, 117,.04)', borderLeft: '3px solid var(--accent-l)', borderRadius: '0 8px 8px 0', maxWidth: '720px', margin: '2rem auto 0' }}>
               <p style={{ fontSize: '.875rem', color: '#475569', margin: 0, lineHeight: 1.6 }}>
                 <strong>None of these are required to get value from InvoAIce.</strong> They're future expansion when you want it — and each one extends the same ERP connectors and data model InvoAIce already deploys.
               </p>
+            </div>
+          </div>
+
+          {/* INVOAICE SPOTLIGHT */}
+          <div className="product-spot" style={{ marginBottom: '5rem' }}>
+            <div className="product-spot-head">
+              <div>
+                <div className="prod-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '.5rem', marginBottom: '.75rem' }}>
+                  <span className="pulse" /> In Production · Live Now
+                </div>
+                <h2 style={{ marginBottom: '.625rem' }}><span className="gradient-text">InvoAIce.io</span></h2>
+                <p style={{ maxWidth: '600px', fontSize: '1.0625rem', marginBottom: 0 }}>
+                  An AI-native Accounts Payable platform that turns invoice chaos into clean ERP posts. Eight specialist agents working as one autonomous pipeline. Sits alongside your ERP — no rip-and-replace, no 12-month IT project.
+                </p>
+              </div>
+              <div className="product-spot-actions">
+                <Link to="/invoaice" className="btn btn-primary">Read the story →</Link>
+                <a href="https://www.invoaice.io" target="_blank" rel="noreferrer" className="btn btn-secondary">Visit InvoAIce.io</a>
+                <Link to="/contact?dp=1" className="btn btn-ghost">Design Partner</Link>
+              </div>
+            </div>
+
+            <div className="product-kpi-grid">
+              {invoaiceStats.map(s => (
+                <div key={s.label} className="product-kpi">
+                  <div className="product-kpi-val">{s.value}</div>
+                  <div className="product-kpi-label">{s.label}</div>
+                </div>
+              ))}
+            </div>
+
+            <div className="product-erp-strip">
+              <div className="product-erp-label">Posts cleanly into</div>
+              <div className="product-erp-row">
+                <span className="product-erp-group">Enterprise</span>
+                {erpEnterprise.map(e => (
+                  <span key={e} className="tech-pill">{e}</span>
+                ))}
+                <span className="product-erp-group">SMB</span>
+                {erpSMB.map(e => (
+                  <span key={e} className="tech-pill">{e}</span>
+                ))}
+              </div>
+            </div>
+
+            <div className="product-roi-strip">
+              <div>
+                At 2,000 invoices/month, modeled annual saving is <strong>~$109K</strong> versus a legacy AP stack.
+              </div>
+              <a href="https://www.invoaice.io/#calculator" target="_blank" rel="noreferrer">
+                Run your own numbers →
+              </a>
+            </div>
+          </div>
+
+          {/* INSIDE INVOAICE — 8-agent swarm */}
+          <div style={{ marginBottom: '5rem' }}>
+            <div className="sec-head">
+              <div className="label">Inside InvoAIce</div>
+              <h2><span className="gradient-text">Eight specialist agents.</span> One autonomous AP pipeline.</h2>
+              <p>InvoAIce isn't a workflow tool with AI bolted on. Every invoice flows through a coordinated swarm of small, specialist agents — each purpose-built for one task in the AP cycle. The result: up to 90% touchless processing on day one, with full audit trail.</p>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
+              {agents.map(a => (
+                <div key={a.title} className="card agent-card" style={{ padding: '1.25rem 1.25rem 1.375rem' }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'linear-gradient(135deg,rgba(13, 117, 117,.08),rgba(16, 144, 144,.12))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '.75rem' }}>
+                    <a.Icon size={22} strokeWidth={1.7} style={{ color: 'var(--accent)' }} />
+                  </div>
+                  <strong style={{ display: 'block', color: 'var(--accent)', marginBottom: '.375rem', fontSize: '.95rem' }}>{a.title}</strong>
+                  <span style={{ fontSize: '.825rem', color: 'var(--ts)', lineHeight: 1.55, display: 'block' }}>{a.desc}</span>
+                </div>
+              ))}
             </div>
           </div>
 

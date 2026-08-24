@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Globe, Building2, Award, Calendar } from 'lucide-react'
+import { Globe, Building2, Award, Calendar, Trophy } from 'lucide-react'
 import SEO from '../components/SEO'
 import JsonLd from '../components/JsonLd'
 import { buildBreadcrumb } from '../seo/schema'
@@ -15,23 +15,22 @@ const founders = [
     tag: 'Director & Co-Founder',
     bio: "Iqbal leads Ciyahi as Director — responsible for the company's commercial strategy, client engagement, and day-to-day operations. He is the principal point of contact for Ciyahi clients across the UK, Europe, and the United States, and signs all commercial agreements on behalf of Ciyahi Limited.",
     initials: 'IS',
-    gradient: 'linear-gradient(135deg,#0284c7,#0ea5e9)',
+    gradient: 'linear-gradient(135deg,#1a9a9a,#22b0b0)',
   },
-  // TEMPORARILY HIDDEN — uncomment to restore Ateequeullah's founder card
-  // {
-  //   name: 'Ateequeullah Khan',
-  //   tag: 'Non-Executive Director & Co-Founder',
-  //   bio: "Ateeq is a non-executive co-founder and the technical conscience behind Ciyahi's product direction. Prior to Ciyahi, he spent 16+ years leading enterprise technology delivery — including 20+ full-cycle AP Automation implementations across 25+ countries and an industry award for Best Designed AP Automation Solution & Implementation. That experience informs the long-term vision behind InvoAIce.io.",
-  //   initials: 'AK',
-  //   gradient: 'linear-gradient(135deg,#5b21b6,#7c3aed)',
-  // },
+  {
+    name: 'Ateequeullah Khan',
+    tag: 'Non-Executive Director & Co-Founder',
+    bio: "Ateeq is a non-executive co-founder and the technical conscience behind Ciyahi's product direction. Prior to Ciyahi, he spent 18 years leading enterprise technology delivery — including 20+ full-cycle AP Automation implementations across 25+ countries and an industry award for Best Designed AP Automation Solution & Implementation. That experience informs the long-term vision behind InvoAIce.io.",
+    initials: 'AK',
+    gradient: 'linear-gradient(135deg,#3a424e,#14161c)',
+  },
 ]
 
 const credentials = [
   { Icon: Globe, stat: '25+', label: 'Countries', desc: 'AP Automation and integration projects delivered across North America, Europe, Middle East & APAC.' },
   { Icon: Building2, stat: '20+', label: 'Enterprises', desc: 'Full-cycle AP Automation implementations delivered for enterprise clients globally.' },
   { Icon: Award, stat: '#1', label: 'Award', desc: "Founding team's AP automation work won an industry award for 'Best Designed Solution & Implementation' before Ciyahi was founded." },
-  { Icon: Calendar, stat: '15+', label: 'Years', desc: 'Hands-on enterprise technology leadership across AP automation, integration, and AI.' },
+  { Icon: Calendar, stat: '18', label: 'Years', desc: 'Hands-on enterprise technology leadership across AP automation, integration, and AI.' },
 ]
 
 const structure = [
@@ -48,8 +47,8 @@ export default function About() {
       <SEO
         title="About Ciyahi"
         path="/about"
-        description="Ciyahi Limited is a Delaware C-Corporation building AI-native finance products for SMB, mid-market, and enterprise teams. Founded by practitioners with 15+ years of AP automation experience. Dual US / UK presence."
-        keywords="Ciyahi, Ciyahi Limited, AI finance startup, Delaware C-Corp finance, finance automation founders, InvoAIce founders, AP automation startup"
+        description="Ciyahi Limited is a Delaware C-Corporation delivering enterprise AI implementation — founded by practitioners with 18 years of enterprise technology experience across 25+ countries. Dual US / UK presence."
+        keywords="Ciyahi, Ciyahi Limited, enterprise AI company, AI implementation founders, Delaware C-Corp AI, InvoAIce founders, Iqbal Shaikh, Ateequeullah Khan"
       />
       <JsonLd schema={breadcrumbSchema} />
       <section className="page-hero">
@@ -69,8 +68,7 @@ export default function About() {
       <section className="section">
         <div className="container">
 
-          {/* Credential stats */}
-          <div style={{ marginBottom: '5rem' }}>
+          <div style={{ marginBottom: '4rem' }}>
             <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
               <div className="label" style={{ margin: '0 auto 0.625rem' }}>Founding Team Track Record</div>
               <p style={{ fontSize: '.9375rem', color: 'var(--ts)', maxWidth: '480px', margin: '0 auto' }}>
@@ -79,11 +77,11 @@ export default function About() {
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))', gap: '1.5rem' }}>
               {credentials.map(c => (
-                <div key={c.label} className="card" style={{ textAlign: 'center', padding: '2rem 1.5rem', borderTop: '3px solid transparent', borderImage: 'linear-gradient(90deg,#5b21b6,#0284c7) 1' }}>
+                <div key={c.label} className="card" style={{ textAlign: 'center', padding: '2rem 1.5rem', borderTop: '3px solid var(--accent)' }}>
                   <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '.625rem' }}>
-                    <c.Icon size={28} strokeWidth={1.6} style={{ color: '#5b21b6' }} />
+                    <c.Icon size={28} strokeWidth={1.6} style={{ color: 'var(--accent)' }} />
                   </div>
-                  <div style={{ fontSize: '2.25rem', fontWeight: 800, background: 'linear-gradient(135deg,#5b21b6,#0284c7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', lineHeight: 1.1, marginBottom: '.25rem' }}>{c.stat}</div>
+                  <div style={{ fontSize: '2.25rem', fontWeight: 800, color: 'var(--accent)', lineHeight: 1.1, marginBottom: '.25rem', fontFamily: 'var(--font-display)' }}>{c.stat}</div>
                   <div style={{ fontSize: '.7rem', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', color: '#64748b', marginBottom: '.625rem' }}>{c.label}</div>
                   <p style={{ fontSize: '.8375rem', lineHeight: 1.65 }}>{c.desc}</p>
                 </div>
@@ -91,33 +89,41 @@ export default function About() {
             </div>
           </div>
 
-          {/* Award banner */}
-          <div style={{ background: 'linear-gradient(135deg,#faf5ff,#f0f9ff)', border: '1px solid rgba(91,33,182,.15)', borderRadius: '16px', padding: '2.5rem 3rem', marginBottom: '5rem', display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
-            <div style={{ fontSize: '3.5rem', flexShrink: 0 }}>🏆</div>
-            <div style={{ flex: 1 }}>
-              <div style={{ fontSize: '.7rem', fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: '#7c3aed', marginBottom: '.5rem' }}>Industry Recognition · Pre-Ciyahi</div>
-              <h3 style={{ fontSize: '1.25rem', marginBottom: '.5rem' }}>Recognised for &ldquo;Best Designed AP Automation Solution &amp; Implementation&rdquo;</h3>
-              <p style={{ fontSize: '.9375rem', maxWidth: '560px' }}>An industry award presented to our founding team for AP automation work delivered <strong>before Ciyahi was founded</strong>. The same rigour, depth, and finance-native instinct now shapes every Ciyahi product and engagement.</p>
+          {/* Industry recognition — high visibility */}
+          <div className="about-award">
+            <div className="about-award-icon" aria-hidden="true">
+              <Trophy size={32} strokeWidth={1.6} />
+            </div>
+            <div className="about-award-body">
+              <div className="about-award-label">Industry Recognition · Pre-Ciyahi</div>
+              <h2 className="about-award-title">
+                Recognised for &ldquo;Best Designed AP Automation Solution &amp; Implementation&rdquo;
+              </h2>
+              <p>
+                An industry award presented to our founding team for AP automation work delivered{' '}
+                <strong>before Ciyahi was founded</strong>. The same rigour, depth, and delivery instinct
+                now shapes every Ciyahi engagement and product — including InvoAIce.
+              </p>
             </div>
           </div>
 
           {/* Mission */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center', marginBottom: '6rem' }}>
-            <div>
-              <div className="label">Why We Exist</div>
-              <h2 style={{ marginBottom: '1.5rem' }}>Enterprise finance is sold like consulting.</h2>
-              <p style={{ marginBottom: '1rem' }}>Long implementations. Vague outcomes. AI bolted on after the fact. Most enterprise finance software still gets delivered the way it did fifteen years ago — a senior partner runs the pitch, a junior team delivers the project, and AI shows up as a marketing checkbox.</p>
-              <p style={{ marginBottom: '1rem' }}>We built Ciyahi to change all three. Finance-native AI from day one. Live in 4 weeks. Outcome-priced. Same product across SMB, mid-market, and enterprise — different shape of the perimeter.</p>
-              <p>The name &ldquo;Ciyahi&rdquo; means <em>ink</em> — permanent, precise, and transformative. We turn strategy into outcomes that last.</p>
-            </div>
-            <div className="card" style={{ padding: '2.5rem', background: 'linear-gradient(135deg,#faf5ff,#f0f9ff)', borderColor: 'rgba(91,33,182,.15)' }}>
-              <div style={{ fontSize: '3rem', marginBottom: '1.25rem' }}>✒️</div>
-              <h3 style={{ marginBottom: '1rem' }}>Ciyahi means Ink</h3>
-              <p style={{ marginBottom: '1.25rem' }}>Ink is permanent, precise, and fluid — the medium through which ideas become real. Every contract signed, every system built, every outcome delivered. It starts with ink.</p>
-              <div style={{ padding: '1rem 1.25rem', background: 'rgba(91,33,182,.06)', borderLeft: '3px solid #7c3aed', borderRadius: '0 8px 8px 0', fontStyle: 'italic', color: '#475569', fontSize: '.9375rem' }}>
-                "We turn strategy into outcomes that last."
-              </div>
-            </div>
+          <div style={{ maxWidth: '680px', marginBottom: '5rem' }}>
+            <div className="label">Why We Exist</div>
+            <h2 style={{ marginBottom: '1.5rem' }}>Enterprise AI should ship — not stall in consulting cycles.</h2>
+            <p style={{ marginBottom: '1rem' }}>
+              Long implementations. Vague outcomes. AI bolted on after the fact. Most enterprise technology
+              still gets delivered the old way — a senior partner runs the pitch, a junior team delivers the project,
+              and AI shows up as a marketing checkbox.
+            </p>
+            <p style={{ marginBottom: '1rem' }}>
+              We built Ciyahi to change that. Process automation with LLMs. Agents designed and implemented by the
+              same founders who scoped the problem. Live in weeks — not a twelve-month IT programme.
+            </p>
+            <p>
+              Insurance brokerage pipelines and InvoAIce in production are the proof. The same pattern applies
+              wherever documents and decisions pile up.
+            </p>
           </div>
 
           {/* Team */}
@@ -129,10 +135,10 @@ export default function About() {
             {founders.map(f => (
               <div key={f.name} className="card" style={{ padding: '2.5rem 2rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.375rem' }}>
-                  <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: f.gradient, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.125rem', fontWeight: 700, color: '#fff', flexShrink: 0, boxShadow: '0 4px 14px rgba(91,33,182,.18)' }}>{f.initials}</div>
+                  <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: f.gradient, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.125rem', fontWeight: 700, color: '#fff', flexShrink: 0, boxShadow: '0 4px 14px rgba(13, 117, 117,.18)' }}>{f.initials}</div>
                   <div>
                     <h3 style={{ margin: 0, fontSize: '1.0625rem' }}>{f.name}</h3>
-                    <span style={{ fontSize: '.7rem', fontWeight: 700, letterSpacing: '.07em', textTransform: 'uppercase', color: '#7c3aed' }}>{f.tag}</span>
+                    <span style={{ fontSize: '.7rem', fontWeight: 700, letterSpacing: '.07em', textTransform: 'uppercase', color: 'var(--accent-l)' }}>{f.tag}</span>
                   </div>
                 </div>
                 <p style={{ fontSize: '.9rem' }}>{f.bio}</p>
@@ -141,7 +147,7 @@ export default function About() {
           </div>
 
           {/* Structure */}
-          <div style={{ background: '#f8f8fd', borderRadius: '16px', padding: '3rem', marginBottom: '4rem', border: '1px solid #e2e8f0' }}>
+          <div style={{ background: 'var(--paper-2)', borderRadius: '16px', padding: '3rem', marginBottom: '4rem', border: '1px solid #e2e8f0' }}>
             <div className="sec-head text-center" style={{ maxWidth: '420px', margin: '0 auto 2rem' }}>
               <div className="label">Structure</div>
               <h2 style={{ fontSize: '1.5rem' }}>How We Are Structured</h2>
@@ -149,7 +155,7 @@ export default function About() {
             <div className="grid-3">
               {structure.map(s => (
                 <div key={s.title} style={{ textAlign: 'center', padding: '1rem' }}>
-                  <h3 style={{ fontSize: '1rem', marginBottom: '.5rem', color: '#5b21b6' }}>{s.title}</h3>
+                  <h3 style={{ fontSize: '1rem', marginBottom: '.5rem', color: 'var(--accent)' }}>{s.title}</h3>
                   <p style={{ fontSize: '.875rem' }}>{s.desc}</p>
                 </div>
               ))}

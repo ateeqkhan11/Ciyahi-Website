@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 
-const LAST_UPDATED = 'May 4, 2026'
+const LAST_UPDATED = 'August 24, 2026'
 
 export default function Privacy() {
   return (
@@ -60,9 +60,9 @@ export default function Privacy() {
                 we receive your email address and the contents of your message.
               </li>
               <li>
-                <strong>Basic technical information:</strong> our hosting provider (AWS) automatically receives
-                IP addresses and standard request logs for security and performance purposes. We do not run
-                marketing analytics or advertising trackers on this Site.
+                <strong>Basic technical information:</strong> our hosting provider (AWS Amplify) automatically
+                receives IP addresses and standard request logs for security, performance, and basic traffic
+                reporting. We do not currently run a third-party marketing analytics product on this Site.
               </li>
             </ul>
             <p>
@@ -138,10 +138,10 @@ export default function Privacy() {
 
             <h2 style={h2Style}>Cookies</h2>
             <p>
-              This Site does not currently set marketing or analytics cookies. Your browser may store a small
-              amount of state for technical reasons (for example, the page route you are on). If we add
-              optional analytics or marketing cookies in the future, we will request your consent first where
-              required by law.
+              This Site does not currently set marketing or advertising cookies. Your browser may store a small
+              amount of technical state for the Site itself (for example, the page route you are on). AWS Amplify
+              may retain standard server access logs. If we add a third-party analytics or marketing tool that uses
+              cookies in the future, we will update this Policy and request consent where required by law.
             </p>
 
             <h2 style={h2Style}>Security</h2>
@@ -163,7 +163,7 @@ export default function Privacy() {
               <a href="mailto:info@ciyahi.com">info@ciyahi.com</a>.
             </p>
 
-            <p style={{ marginTop: '2.5rem', padding: '1rem 1.25rem', background: '#f8f8fd', borderLeft: '3px solid #7c3aed', borderRadius: '0 8px 8px 0', fontSize: '.875rem', color: '#475569', fontStyle: 'italic' }}>
+            <p style={{ marginTop: '2.5rem', padding: '1rem 1.25rem', background: 'var(--paper-2)', borderLeft: '3px solid var(--accent-l)', borderRadius: '0 8px 8px 0', fontSize: '.875rem', color: '#475569', fontStyle: 'italic' }}>
               This Policy applies to the Ciyahi marketing website only. Use of our products is governed by
               separate product agreements.
             </p>

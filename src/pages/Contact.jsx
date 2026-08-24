@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { Handshake, FileText, Bot, Link2, Compass, Rocket, MessageCircle } from 'lucide-react'
+import { Handshake, Layers, Bot, Target, FileText, MessageCircle } from 'lucide-react'
 import SEO from '../components/SEO'
 import JsonLd from '../components/JsonLd'
 import { buildBreadcrumb } from '../seo/schema'
@@ -9,26 +9,26 @@ const breadcrumbSchema = buildBreadcrumb([
   { name: 'Contact', path: '/contact' },
 ])
 
-// Service options shown in the step-0 picker. The first option (Design
-// Partner Program) is also auto-selected when ?dp=1 is in the URL.
-const services = [
-  { id: 'designpartner', Icon: Handshake, label: 'Design Partner Program' },
-  { id: 'ap', Icon: FileText, label: 'AP Automation' },
-  { id: 'ai', Icon: Bot, label: 'AI for Finance Operations' },
-  { id: 'integration', Icon: Link2, label: 'Finance ERP Integration' },
-  { id: 'advisory', Icon: Compass, label: 'Finance AI Strategy & Advisory' },
-  { id: 'product', Icon: Rocket, label: 'InvoAIce.io / Products' },
-  { id: 'other', Icon: MessageCircle, label: 'Something Else' },
-]
-
 const DP_LABEL = 'Design Partner Program'
 
-// Build the email subject Web3Forms will use, based on what the person enquired about.
 function buildSubject(service) {
   if (service === DP_LABEL) return 'Interested in Design Partner Program — Ciyahi Website'
   if (service) return `Enquiry: ${service} — Ciyahi Website`
   return 'New Enquiry — Ciyahi Website'
 }
+
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '143923a8-f358-4d5b-ae15-c45394139f47'
+
+// Service options shown in the step-0 picker. Design Partner is also
+// auto-selected when ?dp=1 is in the URL.
+const services = [
+  { id: 'implementation', Icon: Layers, label: 'AI Implementation & Delivery' },
+  { id: 'agents', Icon: Bot, label: 'AI Agent & Harness Development' },
+  { id: 'advisory', Icon: Target, label: 'AI Strategy & Advisory' },
+  { id: 'finance', Icon: FileText, label: 'Finance Automation / InvoAIce' },
+  { id: 'designpartner', Icon: Handshake, label: DP_LABEL, display: 'InvoAIce Design Partner' },
+  { id: 'other', Icon: MessageCircle, label: 'Something Else' },
+]
 
 export default function Contact() {
   const [searchParams] = useSearchParams()
@@ -70,10 +70,10 @@ export default function Contact() {
   return (
     <>
       <SEO
-        title="Contact Ciyahi · Apply for Design Partner Program"
+        title="Schedule a Call — Ciyahi Enterprise AI"
         path="/contact"
-        description="Apply for the InvoAIce Design Partner Program. 60 days completely free, 5 spots only, live in 4 weeks. Or schedule a strategy call with the founders."
-        keywords="InvoAIce design partner, AP automation pilot, free AP automation trial, finance automation strategy call, Ciyahi contact"
+        description="Talk to a Ciyahi founder about AI implementation, AI agent development, AI strategy, or finance automation. We come prepared with insights — not a sales pitch."
+        keywords="enterprise AI implementation contact, AI strategy call, schedule AI consultation, InvoAIce design partner, AI agent development enquiry, Ciyahi contact"
       />
       <JsonLd schema={breadcrumbSchema} />
       <section className="page-hero">
@@ -101,7 +101,7 @@ export default function Contact() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                 <div className="card" style={{ padding: '1.25rem' }}>
                   <strong>Email</strong><br />
-                  <a href="mailto:info@ciyahi.com" style={{ color: 'var(--indigo)' }}>info@ciyahi.com</a>
+                  <a href="mailto:info@ciyahi.com" style={{ color: 'var(--violet)' }}>info@ciyahi.com</a>
                 </div>
                 <div className="card" style={{ padding: '1.25rem' }}>
                   <strong>Response Time</strong><br />
@@ -150,21 +150,21 @@ export default function Contact() {
                               onClick={() => { setService(s.label); setStep(1) }}
                               style={{
                                 padding: '1rem',
-                                border: `2px solid ${isSelected ? 'var(--indigo)' : (isDPOption ? 'rgba(91,33,182,.4)' : 'var(--b)')}`,
+                                border: `2px solid ${isSelected ? 'var(--violet)' : (isDPOption ? 'rgba(13, 117, 117,.4)' : 'var(--b)')}`,
                                 borderRadius: 'var(--rmd)',
-                                background: isSelected ? '#eef2ff' : (isDPOption ? 'linear-gradient(135deg,rgba(91,33,182,.06),rgba(124,58,237,.08))' : '#fff'),
+                                background: isSelected ? '#eef2ff' : (isDPOption ? 'linear-gradient(135deg,rgba(13, 117, 117,.06),rgba(16, 144, 144,.08))' : '#fff'),
                                 cursor: 'pointer',
                                 textAlign: 'left',
                                 transition: 'all .2s',
                                 fontSize: '.9rem',
                                 fontWeight: isDPOption ? 600 : 500,
-                                color: isDPOption ? '#5b21b6' : 'inherit',
+                                color: isDPOption ? 'var(--accent)' : 'inherit',
                               }}
                             >
-                              <s.Icon size={28} strokeWidth={1.6} style={{ display: 'block', marginBottom: '.625rem', color: isDPOption ? '#5b21b6' : '#475569' }} />
-                              {s.label}
+                              <s.Icon size={28} strokeWidth={1.6} style={{ display: 'block', marginBottom: '.625rem', color: isDPOption ? 'var(--accent)' : '#475569' }} />
+                              {s.display || s.label}
                               {isDPOption && (
-                                <span style={{ display: 'block', fontSize: '.7rem', fontWeight: 600, color: '#7c3aed', marginTop: '.25rem' }}>
+                                <span style={{ display: 'block', fontSize: '.7rem', fontWeight: 600, color: 'var(--accent-l)', marginTop: '.25rem' }}>
                                   60 days free · 5 spots · Live in 4 weeks
                                 </span>
                               )}
@@ -177,24 +177,24 @@ export default function Contact() {
 
                   {step === 1 && (
                     <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                      <input type="hidden" name="access_key" value="143923a8-f358-4d5b-ae15-c45394139f47" />
+                      <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
                       <input type="hidden" name="subject" value={subject} />
                       <input type="hidden" name="from_name" value="Ciyahi Website" />
-                      <input type="checkbox" name="botcheck" style={{ display: 'none' }} />
+                      <input type="checkbox" name="botcheck" className="botcheck-honeypot" tabIndex={-1} autoComplete="off" aria-hidden="true" />
                       <input type="hidden" name="service" value={service} />
                       <input type="hidden" name="enquiry_type" value={isDPFlow ? 'Design Partner Application' : 'General Enquiry'} />
 
                       {isDPFlow ? (
-                        <div style={{ background: 'linear-gradient(135deg,rgba(91,33,182,.07),rgba(124,58,237,.08))', border: '1px solid rgba(91,33,182,.22)', borderRadius: '12px', padding: '1.125rem 1.25rem' }}>
+                        <div style={{ background: 'linear-gradient(135deg,rgba(13, 117, 117,.07),rgba(16, 144, 144,.08))', border: '1px solid rgba(13, 117, 117,.22)', borderRadius: '12px', padding: '1.125rem 1.25rem' }}>
                           <div style={{ display: 'flex', alignItems: 'center', gap: '.625rem', marginBottom: '.375rem' }}>
-                            <Handshake size={22} strokeWidth={1.7} style={{ color: '#5b21b6', flexShrink: 0 }} />
-                            <strong style={{ color: '#5b21b6', fontSize: '1rem' }}>Interested in Design Partner Program</strong>
+                            <Handshake size={22} strokeWidth={1.7} style={{ color: 'var(--accent)', flexShrink: 0 }} />
+                            <strong style={{ color: 'var(--accent)', fontSize: '1rem' }}>Interested in Design Partner Program</strong>
                           </div>
                           <p style={{ fontSize: '.85rem', color: 'var(--ts)', margin: 0, lineHeight: 1.55 }}>
                             60 days completely free · 5 spots only · Live in 4 weeks. Tell us a bit about your AP workflow and a founder will reach out within one business day.
                           </p>
                           <div style={{ marginTop: '.625rem' }}>
-                            <button type="button" onClick={() => setStep(0)} style={{ background: 'none', border: 'none', color: 'var(--indigo)', cursor: 'pointer', fontSize: '.8rem', padding: 0, textDecoration: 'underline' }}>
+                            <button type="button" onClick={() => setStep(0)} style={{ background: 'none', border: 'none', color: 'var(--violet)', cursor: 'pointer', fontSize: '.8rem', padding: 0, textDecoration: 'underline' }}>
                               Change topic
                             </button>
                           </div>
@@ -205,7 +205,7 @@ export default function Contact() {
                           <p style={{ color: 'var(--ts)', fontSize: '.9rem', marginBottom: '0' }}>
                             Enquiring about: <strong>{service}</strong>
                             &nbsp;
-                            <button type="button" onClick={() => setStep(0)} style={{ background: 'none', border: 'none', color: 'var(--indigo)', cursor: 'pointer', fontSize: '.85rem' }}>Change</button>
+                            <button type="button" onClick={() => setStep(0)} style={{ background: 'none', border: 'none', color: 'var(--violet)', cursor: 'pointer', fontSize: '.85rem' }}>Change</button>
                           </p>
                         </div>
                       )}
