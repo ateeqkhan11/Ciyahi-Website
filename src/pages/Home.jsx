@@ -5,7 +5,6 @@ import {
   ShieldAlert, Calculator,
 } from 'lucide-react'
 import AnimatedCounter from '../components/AnimatedCounter'
-import HeroShowcase from '../components/HeroShowcase'
 import SEO from '../components/SEO'
 import JsonLd from '../components/JsonLd'
 import useScrollReveal from '../hooks/useScrollReveal'
@@ -77,9 +76,9 @@ const services = [
 
 const approach = [
   { num: '01', title: 'Assess', desc: 'Map the real problem and define measurable outcomes before any build begins.' },
-  { num: '02', title: 'Design', desc: 'Architect the system with your team — agents, integrations, failure modes.' },
-  { num: '03', title: 'Build', desc: 'Founder-led delivery. No handoff to a junior team after the SOW is signed.' },
-  { num: '04', title: 'Embed', desc: 'Train your people, document everything, leave a system that runs without us.' },
+  { num: '02', title: 'Design', desc: 'Architect the agent system with your team — integrations, guardrails, failure modes.' },
+  { num: '03', title: 'Build', desc: 'Founder-led delivery in your environment. No handoff to a junior team after the SOW.' },
+  { num: '04', title: 'Embed', desc: 'Train your people, document everything, and leave a system that runs without us.' },
 ]
 
 const journey = [
@@ -174,7 +173,7 @@ export default function Home() {
         <div className="hero-dots" />
         <div className="hero-ink hero-ink--main" aria-hidden="true" />
         <div className="hero-ink hero-ink--wisp" aria-hidden="true" />
-        <div className="container hero-layout">
+        <div className="container">
           <div className="hero-content hero-stagger">
             <div className="hero-brand">
               <span className="hero-brand-mark" aria-hidden="true" />
@@ -206,8 +205,6 @@ export default function Home() {
               <span><i /> InvoAIce live in production</span>
             </div>
           </div>
-
-          <HeroShowcase />
         </div>
       </section>
 
