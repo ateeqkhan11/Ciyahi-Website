@@ -5,6 +5,7 @@ import {
   ShieldAlert, Calculator,
 } from 'lucide-react'
 import AnimatedCounter from '../components/AnimatedCounter'
+import HeroShowcase from '../components/HeroShowcase'
 import SEO from '../components/SEO'
 import JsonLd from '../components/JsonLd'
 import useScrollReveal from '../hooks/useScrollReveal'
@@ -94,8 +95,8 @@ const whys = [
     desc: 'LLM agents that classify, extract, decide, and post. Insurance and AP are the proof; the pattern travels.',
   },
   {
-    title: 'Design agents. Implement agents.',
-    desc: 'We don\'t stop at a roadmap. The same team designs the harness and puts it into production.',
+    title: 'Roadmap to production — same team',
+    desc: 'We don\'t stop at a strategy deck. The people who design the harness are the ones who ship it.',
   },
   {
     title: 'Founder-led every engagement',
@@ -147,10 +148,13 @@ export default function Home() {
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
-    const ink = document.querySelector('.hero-ink')
-    if (!ink) return undefined
+    const inkMain = document.querySelector('.hero-ink--main')
+    const inkWisp = document.querySelector('.hero-ink--wisp')
+    if (!inkMain) return undefined
     const onScroll = () => {
-      ink.style.transform = `translateY(${window.scrollY * 0.12}px)`
+      const y = window.scrollY
+      inkMain.style.transform = `translateY(${y * 0.1}px)`
+      if (inkWisp) inkWisp.style.transform = `translateY(${y * 0.18}px) translateX(${y * -0.04}px)`
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -166,10 +170,11 @@ export default function Home() {
       <JsonLd schema={organizationSchema} />
       <JsonLd schema={websiteSchema} />
 
-      <section className="hero">
+      <section className="hero hero-premium">
         <div className="hero-dots" />
-        <div className="hero-ink" aria-hidden="true" />
-        <div className="container">
+        <div className="hero-ink hero-ink--main" aria-hidden="true" />
+        <div className="hero-ink hero-ink--wisp" aria-hidden="true" />
+        <div className="container hero-layout">
           <div className="hero-content hero-stagger">
             <div className="hero-brand">
               <span className="hero-brand-mark" aria-hidden="true" />
@@ -201,14 +206,16 @@ export default function Home() {
               <span><i /> InvoAIce live in production</span>
             </div>
           </div>
+
+          <HeroShowcase />
         </div>
       </section>
 
-      <section className="section reveal-block" style={{ paddingTop: '4rem', background: 'var(--paper)' }}>
+      <section className="section section-shipped reveal-block">
         <div className="container">
           <div className="sec-head reveal-block">
-            <div className="label">Process Automation · Shipped</div>
-            <h2>LLM agents that run<br /><span className="gradient-text">real processes end to end.</span></h2>
+            <div className="label">Shipped work</div>
+            <h2>LLM agents running<br /><span className="gradient-text">real processes end to end.</span></h2>
             <p>
               Ciyahi designs and implements agent pipelines that simplify document-heavy work —
               proven in insurance brokerage intake and accounts payable.
@@ -216,7 +223,7 @@ export default function Home() {
           </div>
 
           <div className="proof-pair">
-            <article className="proof-card">
+            <article className="proof-card proof-card--insurance glass-card">
               <div className="proof-card-top">
                 <span className="proof-card-badge">Delivered · Insurance Brokerage</span>
                 <h3>Document Intelligence &amp; Submission-to-Quote</h3>
@@ -261,7 +268,7 @@ export default function Home() {
               </Link>
             </article>
 
-            <article className="proof-card">
+            <article className="proof-card proof-card--invoaice glass-card">
               <div className="proof-card-top">
                 <span className="proof-card-badge proof-card-badge--live">
                   <span className="pulse" /> Live · Flagship Product
@@ -309,11 +316,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section reveal-block" style={{ background: 'var(--paper-2)', borderTop: '1px solid var(--b)' }}>
+      <section className="section section-wash reveal-block">
         <div className="container">
           <div className="sec-head reveal-block">
-            <div className="label">What We Do</div>
-            <h2>Automate processes.<br /><span className="gradient-text">Design and ship the agents.</span></h2>
+            <div className="label">What we do</div>
+            <h2>Four ways we help teams ship AI.</h2>
           </div>
 
           <div className="svc-list">
@@ -338,8 +345,8 @@ export default function Home() {
       <section className="section reveal-block">
         <div className="container">
           <div className="sec-head reveal-block">
-            <div className="label">Customer Journey</div>
-            <h2>What working with Ciyahi<br /><span className="gradient-text">actually looks like.</span></h2>
+            <div className="label">Customer journey</div>
+            <h2>What working with Ciyahi looks like.</h2>
             <p>No 12-month IT project. A clear path from first call to production — and a foundation that grows with you.</p>
           </div>
           <div className="journey-grid">
@@ -355,11 +362,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section reveal-block" style={{ background: 'var(--paper-2)', borderTop: '1px solid var(--b)' }}>
+      <section className="section section-wash reveal-block">
         <div className="container">
           <div className="sec-head reveal-block">
-            <div className="label">How We Work</div>
-            <h2>Four steps from<br /><span className="gradient-text">brief to production.</span></h2>
+            <div className="label">How we work</div>
+            <h2>Four steps from brief to production.</h2>
           </div>
           <div className="approach-grid">
             {approach.map(a => (
@@ -388,7 +395,7 @@ export default function Home() {
             ))}
           </div>
           <div className="quote-block reveal-block" style={{ marginTop: '3.5rem', maxWidth: '640px' }}>
-            Process automation with LLMs — design the agents, implement the agents, simplify the work.
+            Founder-led from first call to go-live — insurance intake, AP automation, and the workflows in between.
           </div>
         </div>
       </section>
